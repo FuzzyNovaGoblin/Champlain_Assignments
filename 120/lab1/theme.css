@@ -1,0 +1,32 @@
+#top{
+   align-self: stretch;
+}
+
+p{
+   max-width: 660px;
+}
+
+.flex-container{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+.flex-container > img {
+  width: 400px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 600px){
+   .flex-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
+
+   .flex-container > img {
+      width: 400px;
+      margin: 10px;
+   }
+}

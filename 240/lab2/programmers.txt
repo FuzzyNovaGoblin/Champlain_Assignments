@@ -1,0 +1,10 @@
+1 Alvin 300
+2 Brenda 350
+3 Chris 250
+4 Dana 500
+5 Eli 450
+6 Faye 320
+7 Glen 670
+8 Hannah 230
+9 Ian 420
+10 Jade 380
