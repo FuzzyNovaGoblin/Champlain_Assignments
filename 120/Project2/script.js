@@ -268,6 +268,8 @@ const matrixInPast = (matrix, past) => {
 const compareBoardStates = (a, b) => {
    if (a.heuristic + a.moves.length > b.heuristic + b.moves.length) return 1;
    if (b.heuristic + b.moves.length > a.heuristic + a.moves.length) return -1;
+   // if (a.heuristic > b.heuristic) return 1;
+   // if (b.heuristic > a.heuristic) return -1;
    // if (a.movesCount > b.movesCount) return 1;
    // if (b.movesCount > a.movesCount) return -1;
    return 0;
