@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!-- CSI 120, Week 6, Lab 5
+    For this lab you are asked to fill in the missing JavaScript
+    code throughout this document as indicated in comments. In each
+    problem you only need to ultimately set a predefined letiable to
+    the right value.
+-->
+<html>
+
+<head>
+   <title>CSI 120 Lab 5</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width-device-width, initial-scale=1.0">
+   <style>
+      table,
+      th,
+      td {
+         border: 1px solid black;
+         border-collapse: collapse;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Temperature Converter -->
+
+   <script>
+      function getData(url, options) {
+         let stuff = ""
+         const base = 'https://swapi.co/api/';
+         getPerson(base + "people")
+            .then(res => {
+               return res.json();
+            })
+            .then(j => {
+               let count = j["count"];
+               for(let i = 0; i < count; i++){
+                  getPerson(base+"people/"+(i+1)).then(
+                     res=>{return res.json()}
+                  )
+                  .then(
+                     res => {
+                        console.log(res["name"]);
+                        stuff += `<p>${res["name"]}</p>`;
+                        document.getElementById("pop").innerHTML = stuff;
+                     }
+                  );
+               }
+
+               // j["results"].forEach(
+               //    (item, index) => {
+               //       console.log(item["name"]);
+               //       stuff += `<h1>Name</h1><h2>${item["name"]}</h2>`
+               //    }
+               // );
+
+
+            }
+            );
+
+
+         // getPerson(`${base}person/2`).then(res => console.log(res));;
+         // getPlanet(`${base}planets/5`).then(word => console.log(word));
+      }
+
+      const getPerson = (url) => {
+         return fetch(url);
+         // console.log(url);
+      };
+
+      const getPlanet = (url) => {
+         // console.log(url);
+         return fetch(url);
+      };
+
+   </script>
+
+   <button onclick="getData('people')">Get Data</button>
+   <div id="pop"></div>
+
+
+</body>
+
+</html>

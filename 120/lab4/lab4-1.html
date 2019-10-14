@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<!--For this lab you are asked to fill in the missing JavaScript
+    code throughout this document as indicated in the comments.
+
+    This lab is about using the JavaScript function document.getElementById().
+    This function grabs an HTML element by its id (the one you specify using
+    an attribute (ex. <p id="my_paragraph">Hello!</p>) and returns it.
+    You can use the variable you set using the function to modify the HTML element.
+    example:
+    let p = document.getElementById("my_paragraph");
+    p.style.color = "blue";
+
+    You can use the innerHTML property to completely replace the contents of an element.
+    example:
+    p.innerHTML = "<a href=\"http://www.nytimes.com\">Read the news!</a>";
+
+    For further reading checkout:
+    https://developer.mozilla.org/en/docs/Web/API/Document/getElementById
+    and
+    http://www.w3schools.com/jsref/met_document_getelementbyid.asp
+    and for what you can change on a returned element
+    http://www.w3schools.com/jsref/dom_obj_all.asp
+    On the left hand side of that page you will also find a section called "HTML Objects"
+    it lists specific attributes you can change on every HTML element.
+-->
+<html>
+    <head>
+        <title>CSI 120 Lab 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            th, td{ border: 1px solid black;}
+        </style>
+    </head>
+    <body>
+        <!-- Swapper -->
+
+        <script>
+            function swapContents() {
+                let p1 = document.getElementById("para1");
+                let p2 = document.getElementById("para2");
+                let tmp = p2.innerHTML;
+                p2.innerHTML = p1.innerHTML;
+                p1.innerHTML = tmp;
+                // YOU FILL IN HERE
+                // Swap the contents of the two paragraphs.
+            }
+        </script>
+
+        <h3>Swapper</h3>
+        <p id="para1">Hello!</p>
+        <p id="para2">Goodbye!</p>
+        <button onclick="swapContents()">Swap</button>
+        <hr>
+
+        <!-- Placing Emphasis -->
+
+        <script>
+            function emphasize() {
+               let foo = document.getElementById("placeForEmphasis");
+               let mark = document.createElement("mark");
+               mark.textContent = foo.textContent;
+               foo.innerHTML = "";
+               foo.appendChild(mark);
+            }
+        </script>
+
+        <h3>Placing Emhpasis</h3>
+        <p>Fall just started but I am already over the <span id="placeForEmphasis">bitter</span> cold.</p>
+        <button onclick="emphasize()">Emphasize</button>
+        <hr>
+
+        <!-- Tiny Calculator -->
+
+        <script>
+            function calculate() {
+               let answerSpan = document.getElementById("answer");
+               answerSpan.innerHTML = "";
+                let operand1 = Number(document.getElementById("operand1").value);
+                let operand2 = Number(document.getElementById("operand2").value);
+                let foo = document.getElementById("operation").value;
+
+                switch(foo){
+                   case "addition":
+                      answerSpan.textContent = operand1 + operand2;
+                      break;
+
+                   case "subtraction":
+                      answerSpan.textContent = operand1 - operand2;
+                      break;
+
+                   case "multiplication":
+                      answerSpan.textContent = operand1 * operand2;
+                      break;
+
+                   case "division":
+                      answerSpan.textContent = operand1 / operand2;
+                      break;
+                }
+
+                console.log(foo);
+
+                if (isNaN(operand1)) {
+                    window.alert("Operand 1 not a number!");
+                    return;
+                }
+
+
+            }
+        </script>
+
+        <h3>Tiny Calculator</h3>
+        <input type="number" id="operand1">
+        <select id="operation">
+          <option value="addition">+</option>
+          <option value="subtraction">-</option>
+          <option value="multiplication">*</option>
+          <option value="division">/</option>
+        </select>
+        <input type="number" id="operand2">
+        =&nbsp;<span id="answer"></span>
+        <button onclick="calculate()">Calculate</button>
+        <hr>
+
+        <!-- Powers of 2 Table -->
+
+        <script>
+            function generatePowersTable() {
+
+                table = document.getElementById("powerTable");
+                table.innerHTML = "";
+
+                for(let i = 1; i <= 16; i++){
+                   let row = document.createElement("tr");
+                   row.innerHTML += `<th>2^${i}</th><td>${Math.pow(2,i)}</td>`;
+                   table.appendChild(row);
+                }
+            }
+        </script>
+
+        <h3>Powers Table</h3>
+
+        <button onclick="generatePowersTable()">Generate Table</button>
+        <table id = powerTable style="border: 1px solid black;"></table>
+        <hr>
+
+        <!-- Magic Eight Ball -->
+
+        <script>
+            window.onload = function() {
+                let responses = ["Yes", "No", "It is certain", "Without a doubt", "You may rely on it", "Yes definitely", "It is decidedly so", "As I see it, yes",
+                "Most likely", "Yes", "Outlook good", "Signs point to yes","Reply hazy try again","Better not tell you now","Ask again later","Cannot predict now",
+                "Concentrate and ask again","Don’t count on it","Outlook not so good","My sources say no","Very doubtful","My reply is no"];
+
+                let eightball = document.getElementById("eightball");
+                eightball.onclick = function () {
+                   let ballAnswer = document.getElementById("8ballAnswer");
+                   ballAnswer.innerHTML = responses[Math.floor(Math.random() * responses.length)];
+                }
+            }
+        </script>
+
+        <h3>Magic Eight Ball</h3>
+        <img id="eightball" src="https://cdn4.iconfinder.com/data/icons/sports-recreation/128/billiards-128.png" alt="Eight Ball">
+        <span id = "8ballAnswer"></span>
+
+        <hr>
+
+    </body>
+</html>

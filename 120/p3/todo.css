@@ -1,0 +1,14 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addTodo {
+    display: flex;
+    flex-direction: row;
+}
+
+#newTodo {
+    width: 200px;
+}

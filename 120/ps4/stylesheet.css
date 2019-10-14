@@ -1,0 +1,19 @@
+.vert {
+   border-left: 2px solid black;
+   border-right: 2px solid black;
+}
+
+.hor {
+   border-top: 2px solid black;
+   border-bottom: 2px solid black;
+}
+
+.boardTile {
+   width: 2%;
+   height: auto;
+}
+
+/* td {
+    width: max-content;
+    height: max-content;
+} */

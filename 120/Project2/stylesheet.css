@@ -1,0 +1,16 @@
+.centered_div {
+   float: none;
+   margin: 0 auto;
+}
+
+.centerTable {
+   margin: 0px auto;
+}
+
+.game_tile {
+   font-size: 50px;
+}
+
+#columnsSelector {
+   width: 20px
+}
