@@ -4,9 +4,11 @@ let myGame = null;
 class Game {
    currentPlayer;
    spaces;
+   won;
 
    constructor() {
       this.currentPlayer = 'x';
+      this.won = false;
       this.spaces = [
          ["null", "null", "null"],
          ["null", "null", "null"],
@@ -16,13 +18,15 @@ class Game {
 
 
    tileClick = (x, y) => {
-      if (this.spaces[x][y] == "null") {
-         console.log("here");
-         this.spaces[x][y] = this.currentPlayer;
-         this.currentPlayer = (this.currentPlayer == 'x') ? 'o' : 'x';
-         rebuildBoard();
+      if (!this.won) {
+         if (this.spaces[x][y] == "null") {
+            console.log("here");
+            this.spaces[x][y] = this.currentPlayer;
+            this.currentPlayer = (this.currentPlayer == 'x') ? 'o' : 'x';
+            rebuildBoard();
+         }
+         this.checkWin();
       }
-      this.checkWin();
    }
 
    checkWin = () => {
@@ -56,6 +60,7 @@ class Game {
    }
 
    win = (who) => {
+      this.won = true;
       if (who == "null") {
          let boardHolder = document.getElementById('gameHolder');
          boardHolder.innerHTML = `
@@ -65,7 +70,41 @@ class Game {
                   <img class="img-fluid" id="curentPlayer" src="draw.png"></img>
                </div>
                <div class=col></div>
-            </div>`;
+            </div>
+
+             <div class="row">
+         <div class=col></div>
+         <div class="col">
+            <table>
+               <tr>
+                  <td class="" onclick="myGame.tileClick(0,0)"><img class="img-fluid" id="00" src="${myGame.spaces[0][0]}.png"></img>
+                  </td>
+                  <td class="vert " onclick="myGame.tileClick(0,1)"><img class="img-fluid" id="01" src="${myGame.spaces[0][1]}.png"></img>
+                  </td>
+                  <td class=" " onclick="myGame.tileClick(0,2)"><img class="img-fluid" id="02" src="${myGame.spaces[0][2]}.png"></img>
+                  </td>
+               </tr>
+               <tr>
+                  <td class=" hor" onclick="myGame.tileClick(1,0)"><img class="img-fluid" id="10" src="${myGame.spaces[1][0]}.png"></img>
+                  </td>
+                  <td class="vert hor" onclick="myGame.tileClick(1,1)"><img class="img-fluid" id="11" src="${myGame.spaces[1][1]}.png"></img>
+                  </td>
+                  <td class=" hor" onclick="myGame.tileClick(1,2)"><img class="img-fluid" id="12" src="${myGame.spaces[1][2]}.png"></img>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="" onclick="myGame.tileClick(2,0)"><img class="img-fluid" id="20" src="${myGame.spaces[2][0]}.png"></img>
+                  </td>
+                  <td class="vert" onclick="myGame.tileClick(2,1)"><img class="img-fluid" id="21" src="${myGame.spaces[2][1]}.png"></img>
+                  </td>
+                  <td class="" onclick="myGame.tileClick(2,2)"><img class="img-fluid" id="22" src="${myGame.spaces[2][2]}.png"></img>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class=col></div>
+      </div>
+            `;
       }
       else {
          let boardHolder = document.getElementById('gameHolder');
@@ -74,10 +113,43 @@ class Game {
                <div class="row justify-content-center">
                   <div>
                      <p>Winner!</p>
-                     <img class="img-fluid"src="${who}.png"></img>
+                     <img class="img-fluid"src="${who}.png" width=200></img>
                   </div>
                </div>
             </div>
+
+             <div class="row">
+         <div class=col></div>
+         <div class="col">
+            <table>
+               <tr>
+                  <td class="" onclick="myGame.tileClick(0,0)"><img class="img-fluid" id="00" src="${myGame.spaces[0][0]}.png"></img>
+                  </td>
+                  <td class="vert " onclick="myGame.tileClick(0,1)"><img class="img-fluid" id="01" src="${myGame.spaces[0][1]}.png"></img>
+                  </td>
+                  <td class=" " onclick="myGame.tileClick(0,2)"><img class="img-fluid" id="02" src="${myGame.spaces[0][2]}.png"></img>
+                  </td>
+               </tr>
+               <tr>
+                  <td class=" hor" onclick="myGame.tileClick(1,0)"><img class="img-fluid" id="10" src="${myGame.spaces[1][0]}.png"></img>
+                  </td>
+                  <td class="vert hor" onclick="myGame.tileClick(1,1)"><img class="img-fluid" id="11" src="${myGame.spaces[1][1]}.png"></img>
+                  </td>
+                  <td class=" hor" onclick="myGame.tileClick(1,2)"><img class="img-fluid" id="12" src="${myGame.spaces[1][2]}.png"></img>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="" onclick="myGame.tileClick(2,0)"><img class="img-fluid" id="20" src="${myGame.spaces[2][0]}.png"></img>
+                  </td>
+                  <td class="vert" onclick="myGame.tileClick(2,1)"><img class="img-fluid" id="21" src="${myGame.spaces[2][1]}.png"></img>
+                  </td>
+                  <td class="" onclick="myGame.tileClick(2,2)"><img class="img-fluid" id="22" src="${myGame.spaces[2][2]}.png"></img>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class=col></div>
+      </div>
              `;
       }
    }
