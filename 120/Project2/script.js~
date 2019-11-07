@@ -1,20 +1,17 @@
 let myGame = null;
 
 class Game {
-//   rows;
-//   cols;
-//   
-//   spaces;
-//   moves;
-//   complete;
-//   playing;
-//   grids = [];
-//   answerMap = {};
+   rows;
+   cols;
+   emptyPosition = { x: 0, y: 0 };
+   spaces;
+   moves;
+   complete;
+   playing;
+   grids = [];
+   answerMap = {};
 
-    constructor(cols, rows) {
-	this.emptyPosition = { x: 0, y: 0 };
-	this.grids = [];
-	this.answerMap = {};
+   constructor(cols, rows) {
       this.moves = 0;
       this.playing = false;
       this.complete = false;
@@ -154,18 +151,18 @@ class Game {
 
 //this holds the state the board could be in for implementing my solve algorithem
 class BoardState {
-//   lastMove;
-//   heuristic;
-//   matrix;
-//   emptyPosition = { x: 0, y: 0 };
-//   pastMoves = [];
+   lastMove;
+   moves = [];
+   up = true;
+   down = true;
+   left = true;
+   right = true;
+   heuristic;
+   matrix;
+   emptyPosition = { x: 0, y: 0 };
+   pastMoves = [];
 
-    constructor(arr, moves, empty, lastMove, pastMoves) {
-      this.moves = [];
-      this.up = true;
-      this.down = true;
-      this.left = true;
-      this.right = true;
+   constructor(arr, moves, empty, lastMove, pastMoves) {
       this.pastMoves = pastMoves;
       this.lastMove = lastMove;
       this.matrix = arr.slice();
