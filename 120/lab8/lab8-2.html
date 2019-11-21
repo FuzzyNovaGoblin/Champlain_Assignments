@@ -1,0 +1,57 @@
+<html>
+
+<head>
+   <title>Lab 8</title>
+</head>
+
+<body>
+   <h1>Cute Cat Generator</h1>
+   <button onclick="getRandomCat()" type="button" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+      Get Cat
+   </button>
+
+   <button onclick="getCatFacts()">Cat Fact</button>
+   <hr>
+   <div id="pictures"></div>
+   <script>
+
+      function getRandomNumber() {
+         return (Math.round(Math.random() * 1000));
+      }
+
+      function getRandomCat() {
+         const url = `https://picsum.photos/id/${getRandomNumber()}/200/200`;
+         fetch(url).then(response => response.json()).then(data => {
+            console.log(data);
+            let pics = document.getElementById('pictures');
+            let htmlStr = "hello world";
+            data.message.forEach(element => {
+               // htmlStr += `<img src="${element}"/>`;
+            });
+            pics.innerHTML = htmlStr;
+         });
+      }
+
+      async function getCatFacts() {
+         const url = 'https://dog.ceo/api/breed/chihuahua/images';
+
+         fetch(url)
+            .then(result => result.json())
+            .then(data => {
+               let pics = document.getElementById('pictures');
+               pics.innerHTML = ''
+               console.log(data);
+
+               data.message.forEach(element=> {
+                  pics.innerHTML += `<img src="${element}"/>`;
+               });
+               p
+            });
+         // data is undefined out here
+      }
+
+   </script>
+</body>
+
+</html>
