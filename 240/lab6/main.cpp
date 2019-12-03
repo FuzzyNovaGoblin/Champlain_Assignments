@@ -62,7 +62,7 @@ int main()
                response = -1;
             }
          } while (response < 0 || response > list.getSize());
-         if(response != 0)
+         if (response != 0)
             list.removeAt(response - 1);
          break;
 
