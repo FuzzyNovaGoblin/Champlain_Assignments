@@ -1,0 +1,10 @@
+{
+   "files.associations": {
+      "sstream": "cpp",
+      "array": "cpp",
+      "string": "cpp",
+      "string_view": "cpp",
+      "initializer_list": "cpp",
+      "utility": "cpp"
+   }
+}
