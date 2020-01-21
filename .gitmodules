@@ -1,0 +1,3 @@
+[submodule "CSI-180/CSI-180-arduino-1"]
+	path = CSI-180/CSI-180-arduino-1
+	url = https://github.com/FuzzyNovaGoblin/CSI-180-arduino-1.git
