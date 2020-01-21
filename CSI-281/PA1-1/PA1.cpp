@@ -24,20 +24,39 @@ te a copy of this assignment to a plagiarism checking service
 the purpose of future plagiarism checking
 */
 
-#pragma once
-
-#include "linkedList.h"
 #include <iostream>
-#include <fstream>
+#include "linkedList.h"
+#include "functions.h"
 #include "data.h"
 
-    void
-    deleteList(Node *head);
+    using namespace std;
 
-void getFileName(std::string &name, std::string ask);
+int main()
+{
+   Node *head;
+   Data dataSet;
 
-bool validateFileName(std::string name);
+   head = readData();
 
-Node *readData();
+   Node *curser = head;
+   while (curser != nullptr)
+   {
+      dataSet.incNumberOfRecords();
+      for (int i = 0; !curser->data.eof(); i++)
+      {
+         if (dataSet.getColsSize() <= i)
+         {
+            dataSet.newCol();
+         }
 
-void writeData(Data &ds);
+         string val;
+         curser->data >> val;
+         dataSet.addVal(i, val[0]);
+      }
+      curser = curser->child;
+   }
+
+   writeData(dataSet);
+
+   deleteList(head);
+}

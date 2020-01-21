@@ -48,7 +48,7 @@ int calcTotalLines( Programmer programmers[], int numProgrammers )
 //returns the average lines coded for all programmers as a float
 float calcAverageLines( Programmer programmers[], int numProgrammers )
 {
-   return calcTotalLines(programmers, numProgrammers) / numProgrammers;
+   return calcTotalLines(programmers, numProgrammers) / (float)numProgrammers;
 }
 
 
