@@ -25,13 +25,21 @@ def is_valid_ip_address(ip_address):
         bool: True if ip_address is valid IPv4 address, False otherwise.
 
     """
-    ip_address = str(ip_address)
-    pCount = 0 #number of decimal point in ip_address
+    ip_address = str(ip_address) #make sure ip_address is a string
+
+    if len(ip_address) == 0:    #make sure string is not empty
+        return False
+
+    pCount = 0  # number of periods in ip_address
     for i in range(len(ip_address)):
-        print(ip_address[i])
-        if (ip_address[i] == '.'):
+        if (ip_address[i] == '.'):  #count periods
             pCount += 1
-        elif (ord(ip_address[i]) < 48 or ord(ip_address[i]) > 57):
+        elif (ord(ip_address[i]) < 48 or ord(ip_address[i]) > 57): #only contains numbers
+            return False
+    ip_address = ip_address.split('.')
+
+    for section in ip_address: #check that each section is no more than 1 byte
+        if int(section) > 255:
             return False
     return pCount == 3
 
@@ -49,7 +57,10 @@ def is_valid_hostname(hostname):
         bool: True if hostname is valid, False otherwise.
 
     """
-    if (not hostname[0].alphabetic() or not hostname[-1].alphabetic()):
+    if (hostname == ''):
+        return False
+
+    if (not hostname[0].isalpha() or not hostname[-1].isalnum()):
         return False
     for i in range(len(hostname)):
         oVal = ord(hostname[i])
@@ -79,6 +90,13 @@ def is_valid_hostname(hostname):
 
 class Hosts:
     """The Hosts class handles translating hostnames to ip addresses."""
-
-    pass  # remove this line when you implement this class
-    #   *** YOUR CODE HERE ***
+    def __init__(self, fileName):
+        file = open(fileName, "r")
+        buff = file.readline()
+        while buff[-1] == '\n':
+            line = buff.split(' ')
+            if not is_valid_ip_address(line[0]):
+                InvalidEntryError
+            if not is_valid_ip_address(line[1]):
+                InvalidEntryError
+            buff = file.readline()
