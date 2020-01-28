@@ -25,7 +25,7 @@ import traceback
 from collections import defaultdict
 import util
 import sys
-
+import html
 
 class Grades:
     """A data structure for project grades.
@@ -388,7 +388,7 @@ modify, and
             print('*** ' + message)
             if self.mute:
                 util.mute_print()
-            message = cgi.escape(message)
+            message = html.escape(message)
         self.messages[self.current_question].append(message)
 
     def check_header(self, module):
