@@ -1,8 +1,7 @@
 /*
 Author:       Grant Hedley
 Class: 	      CSI-281 - 01
-Assignment:
-Date Assigned:
+Assignment:    PP2
 Due Date:
 Description:
 A brief description of the purpose of the program.
@@ -21,3 +20,17 @@ Communicate a copy of this assignment to a plagiarism checking service
 (which may then retain a copy of this assignment on its database for
 the purpose of future plagiarism checking
 */
+
+#pragma once
+#include <iostream>
+#include <iomanip>
+#include "functions.h"
+
+void testSwapValues();
+void testSwapValues2();
+void testSwapValues3();
+
+void testPrintArr();
+
+void testSum();
+void testSum2();
