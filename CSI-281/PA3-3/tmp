@@ -1,0 +1,70 @@
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of ints
+*/
+void cycleSortTest1()
+{
+  cout << "cycle sort Test1:\n";
+  int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
+  printArray(arr, 10);
+  cycleSort(arr, 10);
+  printArray(arr, 10);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of strings
+*/
+void cycleSortTest2()
+{
+  cout << "cycle sort Test2:\n";
+  string arr[] = {"2431", "hi", "had", "baby"};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of chars
+*/
+void cycleSortTest3()
+{
+  cout << "cycle sort Test3:\n";
+  char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of strings w/ capitals
+*/
+void cycleSortTest4()
+{
+  cout << "cycle sort Test4:\n";
+  string arr[] = {"2431", "Hi", "had", "bAby"};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of chars w/ capitals
+*/
+void cycleSortTest5()
+{
+  cout << "cycle sort Test5:\n";
+  char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
+}

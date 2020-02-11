@@ -1,10 +1,10 @@
 /*
 Author:       Grant Hedley
 Class: 	      CSI-281 - 01
-Assignment: PA3 part 2
+Assignment: PA3 part 3
 Date Assigned: 2/4/20
-Due Date: 2/11/20
-Description: selection sort and shell sort algorithems
+Due Date: 2/14/20
+Description: quick sort and merge sort algorithems
 
 Certification of Authenticity:
 I certify that this is entirely my own work, except where I have given
@@ -17,24 +17,32 @@ may, for the purpose of assessing this assignment:
   checking)
 */
 
-#include <iostream>
-#include "stubs.h"
 #include "functions.h"
 
 using namespace std;
 
-int main()
+/*    pre: input char
+     post: return the char as lowercase;
+  purpose: change capital char to lowercase
+*/
+char toLowercase(char c)
 {
+   if (c >= 'A' && c <= 'Z')
+      return c + 32;
 
-   selectionSortTest1();
-   selectionSortTest2();
-   selectionSortTest3();
-   selectionSortTest4();
-   selectionSortTest5();
+   return c;
+}
 
-   shellSortTest1();
-   shellSortTest2();
-   shellSortTest3();
-   shellSortTest4();
-   shellSortTest5();
+/*    pre: input strng
+     post: return the string as lowercase;
+  purpose: to elimenate capitals in strings
+*/
+string toLowercase(string str)
+{
+   stringstream ss;
+   for (int i = 0; i < str.length(); i++)
+   {
+      ss << toLowercase(str[i]);
+   }
+   return ss.str();
 }

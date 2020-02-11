@@ -1,10 +1,10 @@
 /*
 Author:       Grant Hedley
 Class: 	      CSI-281 - 01
-Assignment: PA3 part 2
+Assignment: PA3 part 3
 Date Assigned: 2/4/20
-Due Date: 2/11/20
-Description: selection sort and shell sort algorithems
+Due Date: 2/14/20
+Description: quick sort and merge sort algorithems
 
 Certification of Authenticity:
 I certify that this is entirely my own work, except where I have given
@@ -17,24 +17,26 @@ may, for the purpose of assessing this assignment:
   checking)
 */
 
-#include <iostream>
-#include "stubs.h"
+#pragma once
 #include "functions.h"
+#include "sortingFunctions.h"
 
 using namespace std;
 
-int main()
-{
+void quickSortTest1();
+void quickSortTest2();
+void quickSortTest3();
+void quickSortTest4();
+void quickSortTest5();
 
-   selectionSortTest1();
-   selectionSortTest2();
-   selectionSortTest3();
-   selectionSortTest4();
-   selectionSortTest5();
+void mergeSortTest1();
+void mergeSortTest2();
+void mergeSortTest3();
+void mergeSortTest4();
+void mergeSortTest5();
 
-   shellSortTest1();
-   shellSortTest2();
-   shellSortTest3();
-   shellSortTest4();
-   shellSortTest5();
-}
+void cycleSortTest1();
+void cycleSortTest2();
+void cycleSortTest3();
+void cycleSortTest4();
+void cycleSortTest5();

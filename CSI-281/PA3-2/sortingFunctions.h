@@ -84,7 +84,7 @@ void shellSort(T array[], int length)
 {
    int gap = length / 2;
    T tmp;
-   while (gap > 0)
+   while (gap > 1)
    {
       for (int i = 0; i < length - 1 - gap; i++)
       {
