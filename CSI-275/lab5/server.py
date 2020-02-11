@@ -1,9 +1,9 @@
-"""Grnat Hedley's code for Lab4.
+"""Grnat Hedley's code for Lab5.
 
 Author: Grant Hedley
 Class: CSI-275-1
-Assignment: Lab 4
-Due Date: 2/10/20
+Assignment: Lab 5
+Due Date: 2/17/20
 
 Certification of Authenticity:
 I certify that this is entirely my own work, except where I have given
