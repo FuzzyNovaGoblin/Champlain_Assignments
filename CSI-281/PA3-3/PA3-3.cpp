@@ -26,17 +26,17 @@ using namespace std;
 int main()
 {
 
-   // quickSortTest1();
-   // quickSortTest2();
-   // quickSortTest3();
-   // quickSortTest4();
-   // quickSortTest5();
+   quickSortTest1();
+   quickSortTest2();
+   quickSortTest3();
+   quickSortTest4();
+   quickSortTest5();
 
-   // mergeSortTest1();
-   // mergeSortTest2();
-   // mergeSortTest3();
-   // mergeSortTest4();
-   // mergeSortTest5();
+   mergeSortTest1();
+   mergeSortTest2();
+   mergeSortTest3();
+   mergeSortTest4();
+   mergeSortTest5();
 
    cycleSortTest1();
    cycleSortTest2();
