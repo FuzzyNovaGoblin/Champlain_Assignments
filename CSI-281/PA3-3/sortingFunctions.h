@@ -55,6 +55,57 @@ void bubbleSort(T *array, int length)
   purpose: to sort the values of the array
 */
 template <typename T>
+void cycleSort(T array[], int length)
+{
+  T item, tmp;
+  int pos;
+  for (int cycleStart = 0; cycleStart < length - 1; cycleStart++)
+  {
+    item = array[cycleStart];
+    pos = cycleStart;
+
+    for (int i = cycleStart; i < length; i++)
+    {
+      if (toLowercase(array[i]) < toLowercase(item))
+      {
+        pos++;
+      }
+    }
+    if (pos == cycleStart)
+      continue;
+
+    while (toLowercase(item) == toLowercase(array[pos]))
+    {
+      pos++;
+    }
+
+    tmp = array[pos];
+    array[pos] = item;
+    item = tmp;
+
+    while (pos != cycleStart)
+    {
+      pos = cycleStart;
+      for (int i = cycleStart + 1; i < length; i++)
+      {
+        if (toLowercase(array[i]) < toLowercase(item))
+          pos++;
+      }
+      while (toLowercase(item) == toLowercase(array[pos]))
+        pos++;
+
+      tmp = array[pos];
+      array[pos] = item;
+      item = tmp;
+    }
+  }
+}
+
+/*    pre: input array and a size
+     post: the values of the array are sorted
+  purpose: to sort the values of the array
+*/
+template <typename T>
 void insertionSort(T *array, int length)
 {
   int j, i;
@@ -68,33 +119,6 @@ void insertionSort(T *array, int length)
       j--;
     }
     array[j + 1] = value;
-  }
-}
-
-/*    pre: input array and a size
-     post: the values of the array are sorted
-  purpose: to sort the values of the array
-*/
-template <typename T>
-void selectionSort(T array[], int length)
-{
-  int minIndex;
-  T tmp;
-  int i, j;
-  for (i = 0; i < length - 1; i++)
-  {
-    minIndex = i;
-    for (j = i + 1; j < length; j++)
-    {
-      if (toLowercase(array[j]) < toLowercase(array[minIndex]))
-        minIndex = j;
-    }
-    if (minIndex != i)
-    {
-      tmp = array[minIndex];
-      array[minIndex] = array[i];
-      array[i] = tmp;
-    }
   }
 }
 
@@ -124,44 +148,30 @@ void shellSort(T array[], int length)
   bubbleSort(array, length);
 }
 
-/*    pre: input array, lower bound and upper bound
+/*    pre: input array and a size
      post: the values of the array are sorted
   purpose: to sort the values of the array
 */
 template <typename T>
-void quickSort(T array[], int lower, int upper)
+void selectionSort(T array[], int length)
 {
+  int minIndex;
   T tmp;
-  int i = lower;
-  int j = upper;
-
-  T pivot = toLowercase(array[(lower + upper) / 2]);
-  while (i <= j)
+  int i, j;
+  for (i = 0; i < length - 1; i++)
   {
-    while (toLowercase(array[i]) < pivot)
+    minIndex = i;
+    for (j = i + 1; j < length; j++)
     {
-      i++;
+      if (toLowercase(array[j]) < toLowercase(array[minIndex]))
+        minIndex = j;
     }
-    while (toLowercase(array[j]) > pivot)
+    if (minIndex != i)
     {
-      j--;
+      tmp = array[minIndex];
+      array[minIndex] = array[i];
+      array[i] = tmp;
     }
-    if (i <= j)
-    {
-      tmp = array[i];
-      array[i] = array[j];
-      array[j] = tmp;
-      i++;
-      j--;
-    }
-  }
-  if (lower < j)
-  {
-    quickSort(array, lower, j);
-  }
-  if (i < upper)
-  {
-    quickSort(array, i, upper);
   }
 }
 
@@ -241,53 +251,43 @@ void mergeSort(T array[], int lower, int upper)
   }
 }
 
-/*    pre: input array and a size
+/*    pre: input array, lower bound and upper bound
      post: the values of the array are sorted
   purpose: to sort the values of the array
 */
 template <typename T>
-void cycleSort(T array[], int length)
+void quickSort(T array[], int lower, int upper)
 {
-  T item, tmp;
-  int pos;
-  for (int cycleStart = 0; cycleStart < length - 1; cycleStart++)
+  T tmp;
+  int i = lower;
+  int j = upper;
+
+  T pivot = toLowercase(array[(lower + upper) / 2]);
+  while (i <= j)
   {
-    item = array[cycleStart];
-    pos = cycleStart;
-
-    for (int i = cycleStart; i < length; i++)
+    while (toLowercase(array[i]) < pivot)
     {
-      if (toLowercase(array[i]) < toLowercase(item))
-      {
-        pos++;
-      }
+      i++;
     }
-    if (pos == cycleStart)
-      continue;
-
-    while (toLowercase(item) == toLowercase(array[pos]))
+    while (toLowercase(array[j]) > pivot)
     {
-      pos++;
+      j--;
     }
-
-    tmp = array[pos];
-    array[pos] = item;
-    item = tmp;
-
-    while (pos != cycleStart)
+    if (i <= j)
     {
-      pos = cycleStart;
-      for (int i = cycleStart + 1; i < length; i++)
-      {
-        if (toLowercase(array[i]) < toLowercase(item))
-          pos++;
-      }
-      while (toLowercase(item) == toLowercase(array[pos]))
-        pos++;
-
-      tmp = array[pos];
-      array[pos] = item;
-      item = tmp;
+      tmp = array[i];
+      array[i] = array[j];
+      array[j] = tmp;
+      i++;
+      j--;
     }
+  }
+  if (lower < j)
+  {
+    quickSort(array, lower, j);
+  }
+  if (i < upper)
+  {
+    quickSort(array, i, upper);
   }
 }

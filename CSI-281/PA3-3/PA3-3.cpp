@@ -31,16 +31,18 @@ int main()
    quickSortTest3();
    quickSortTest4();
    quickSortTest5();
+   quickSortTest6();
 
    mergeSortTest1();
    mergeSortTest2();
    mergeSortTest3();
    mergeSortTest4();
-   mergeSortTest5();
+   mergeSortTest6();
 
    cycleSortTest1();
    cycleSortTest2();
    cycleSortTest3();
    cycleSortTest4();
    cycleSortTest5();
+   cycleSortTest6();
 }

@@ -27,12 +27,12 @@ using namespace std;
 */
 void quickSortTest1()
 {
-   cout << "quick sort Test1:\n";
-   int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
-   printArray(arr, 10);
-   quickSort(arr, 0, 9);
-   printArray(arr, 10);
-   cout << "\n\n";
+  cout << "quick sort Test1:\n";
+  int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
+  printArray(arr, 10);
+  quickSort(arr, 0, 9);
+  printArray(arr, 10);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -41,12 +41,12 @@ void quickSortTest1()
 */
 void quickSortTest2()
 {
-   cout << "quick sort Test2:\n";
-   string arr[] = {"2431", "hi", "had", "baby"};
-   printArray(arr, 4);
-   quickSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "quick sort Test2:\n";
+  string arr[] = {"2431", "hi", "had", "baby"};
+  printArray(arr, 4);
+  quickSort(arr, 0, 3);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -55,12 +55,12 @@ void quickSortTest2()
 */
 void quickSortTest3()
 {
-   cout << "quick sort Test3:\n";
-   char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
-   printArray(arr, 4);
-   quickSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "quick sort Test3:\n";
+  char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
+  printArray(arr, 7);
+  quickSort(arr, 0, 6);
+  printArray(arr, 7);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -69,12 +69,12 @@ void quickSortTest3()
 */
 void quickSortTest4()
 {
-   cout << "quick sort Test4:\n";
-   string arr[] = {"2431", "Hi", "had", "bAby"};
-   printArray(arr, 4);
-   quickSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "quick sort Test4:\n";
+  string arr[] = {"2431", "Hi", "had", "bAby"};
+  printArray(arr, 4);
+  quickSort(arr, 0, 3);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -83,12 +83,35 @@ void quickSortTest4()
 */
 void quickSortTest5()
 {
-   cout << "quick sort Test5:\n";
-   char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
-   printArray(arr, 4);
-   quickSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "quick sort Test5:\n";
+  char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
+  printArray(arr, 7);
+  quickSort(arr, 0, 6);
+  printArray(arr, 7);
+  cout << "\n\n";
+}
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test quick sort function with array of TestClass objects
+*/
+void quickSortTest6()
+{
+  cout << "quick sort Test6:\n";
+  TestClass arr[] = {
+      TestClass(2),
+      TestClass(-4),
+      TestClass(7),
+      TestClass(4),
+      TestClass(10),
+      TestClass(3),
+      TestClass(28),
+      TestClass(36),
+      TestClass(2),
+  };
+  printArray(arr, 9);
+  quickSort(arr, 0, 8);
+  printArray(arr, 9);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -97,12 +120,12 @@ void quickSortTest5()
 */
 void mergeSortTest1()
 {
-   cout << "merge sort Test1:\n";
-   int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
-   printArray(arr, 10);
-   mergeSort(arr, 0, 9);
-   printArray(arr, 10);
-   cout << "\n\n";
+  cout << "merge sort Test1:\n";
+  int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
+  printArray(arr, 10);
+  mergeSort(arr, 0, 9);
+  printArray(arr, 10);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -111,12 +134,12 @@ void mergeSortTest1()
 */
 void mergeSortTest2()
 {
-   cout << "merge sort Test2:\n";
-   string arr[] = {"2431", "hi", "had", "baby"};
-   printArray(arr, 4);
-   mergeSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "merge sort Test2:\n";
+  string arr[] = {"2431", "hi", "had", "baby"};
+  printArray(arr, 4);
+  mergeSort(arr, 0, 3);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -125,12 +148,12 @@ void mergeSortTest2()
 */
 void mergeSortTest3()
 {
-   cout << "merge sort Test3:\n";
-   char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
-   printArray(arr, 4);
-   mergeSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "merge sort Test3:\n";
+  char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
+  printArray(arr, 7);
+  mergeSort(arr, 0, 6);
+  printArray(arr, 7);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -139,12 +162,12 @@ void mergeSortTest3()
 */
 void mergeSortTest4()
 {
-   cout << "merge sort Test4:\n";
-   string arr[] = {"2431", "Hi", "had", "bAby"};
-   printArray(arr, 4);
-   mergeSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "merge sort Test4:\n";
+  string arr[] = {"2431", "Hi", "had", "bAby"};
+  printArray(arr, 4);
+  mergeSort(arr, 0, 3);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -153,12 +176,36 @@ void mergeSortTest4()
 */
 void mergeSortTest5()
 {
-   cout << "merge sort Test5:\n";
-   char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
-   printArray(arr, 4);
-   mergeSort(arr, 0, 3);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "merge sort Test5:\n";
+  char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
+  printArray(arr, 7);
+  mergeSort(arr, 0, 6);
+  printArray(arr, 7);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test merge sort function with array of TestClass objects
+*/
+void mergeSortTest6()
+{
+  cout << "merge sort Test6:\n";
+  TestClass arr[] = {
+      TestClass(2),
+      TestClass(-4),
+      TestClass(7),
+      TestClass(4),
+      TestClass(10),
+      TestClass(3),
+      TestClass(28),
+      TestClass(36),
+      TestClass(2),
+  };
+  printArray(arr, 9);
+  mergeSort(arr, 0, 8);
+  printArray(arr, 9);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -167,12 +214,12 @@ void mergeSortTest5()
 */
 void cycleSortTest1()
 {
-   cout << "cycle sort Test1:\n";
-   int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
-   printArray(arr, 10);
-   cycleSort(arr, 10);
-   printArray(arr, 10);
-   cout << "\n\n";
+  cout << "cycle sort Test1:\n";
+  int arr[] = {43, 43, 25, 64, 43, 5, 7, 565, 3, -64};
+  printArray(arr, 10);
+  cycleSort(arr, 10);
+  printArray(arr, 10);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -181,12 +228,12 @@ void cycleSortTest1()
 */
 void cycleSortTest2()
 {
-   cout << "cycle sort Test2:\n";
-   string arr[] = {"2431", "hi", "had", "baby"};
-   printArray(arr, 4);
-   cycleSort(arr, 4);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "cycle sort Test2:\n";
+  string arr[] = {"2431", "hi", "had", "baby"};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -195,12 +242,12 @@ void cycleSortTest2()
 */
 void cycleSortTest3()
 {
-   cout << "cycle sort Test3:\n";
-   char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
-   printArray(arr, 4);
-   cycleSort(arr, 4);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "cycle sort Test3:\n";
+  char arr[] = {'f', 's', 'i', 'a', 'l', 'p', 'e'};
+  printArray(arr, 7);
+  cycleSort(arr, 7);
+  printArray(arr, 7);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -209,12 +256,12 @@ void cycleSortTest3()
 */
 void cycleSortTest4()
 {
-   cout << "cycle sort Test4:\n";
-   string arr[] = {"2431", "Hi", "had", "bAby"};
-   printArray(arr, 4);
-   cycleSort(arr, 4);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "cycle sort Test4:\n";
+  string arr[] = {"2431", "Hi", "had", "bAby"};
+  printArray(arr, 4);
+  cycleSort(arr, 4);
+  printArray(arr, 4);
+  cout << "\n\n";
 }
 
 /*    pre: none
@@ -223,10 +270,34 @@ void cycleSortTest4()
 */
 void cycleSortTest5()
 {
-   cout << "cycle sort Test5:\n";
-   char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
-   printArray(arr, 4);
-   cycleSort(arr, 4);
-   printArray(arr, 4);
-   cout << "\n\n";
+  cout << "cycle sort Test5:\n";
+  char arr[] = {'f', 's', 'I', 'a', 'L', 'p', 'E'};
+  printArray(arr, 7);
+  cycleSort(arr, 7);
+  printArray(arr, 7);
+  cout << "\n\n";
+}
+
+/*    pre: none
+     post: prints an unsorted and sorted list
+  purpose: test cycle sort function with array of TestClass objects
+*/
+void cycleSortTest6()
+{
+  cout << "cycle sort Test6:\n";
+  TestClass arr[] = {
+      TestClass(2),
+      TestClass(-4),
+      TestClass(7),
+      TestClass(4),
+      TestClass(10),
+      TestClass(3),
+      TestClass(28),
+      TestClass(36),
+      TestClass(2),
+  };
+  printArray(arr, 9);
+  cycleSort(arr, 9);
+  printArray(arr, 9);
+  cout << "\n\n";
 }
