@@ -74,7 +74,7 @@ void runAllSorts(Timer &timer, string fileName)
         switch (i)
         {
         case 0:
-          outFile  << runBubbleSort(N_LIST[k], dataSet, timer);
+          outFile << runBubbleSort(N_LIST[k], dataSet, timer);
           break;
         case 1:
           outFile << runCycleSort(N_LIST[k], dataSet, timer);
@@ -113,7 +113,7 @@ void runAllSorts(Timer &timer, string fileName)
 
 string runBubbleSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -125,12 +125,13 @@ string runBubbleSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "BubbleSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runCycleSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -142,12 +143,13 @@ string runCycleSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "CycleSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runInsertionSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -159,12 +161,13 @@ string runInsertionSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "InsertionSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runShellSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -176,12 +179,13 @@ string runShellSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "ShellSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runSelectionSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -193,13 +197,14 @@ string runSelectionSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "SelectionSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runMergeSort(int N, string inputFileName, Timer &timer)
 {
 
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -210,12 +215,13 @@ string runMergeSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "MergeSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }
 
 string runQuickSort(int N, string inputFileName, Timer &timer)
 {
-  int array[N];
+  int *array = new int[N];
   readFileToArray(array, N, inputFileName);
 
   timer.start();
@@ -228,5 +234,6 @@ string runQuickSort(int N, string inputFileName, Timer &timer)
        << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
   ss << setw(15) << right << "QuickSort | "
      << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+  delete[] array;
   return ss.str();
 }

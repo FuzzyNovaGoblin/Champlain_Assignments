@@ -37,7 +37,7 @@ public:
    bool resume();
    bool stop();
    bool isPaused();
-   double getTime();
+   long getTime();
 };
 
 #endif

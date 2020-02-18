@@ -102,7 +102,7 @@ bool Timer::stop()
  *            up ot this point
  *  Purpose:  to get the time from the timer
  ************************************************************************/
-double Timer::getTime()
+long Timer::getTime()
 {
    if (mStoped)
    {
