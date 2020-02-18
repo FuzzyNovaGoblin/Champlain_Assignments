@@ -36,6 +36,6 @@ int main()
       generatDataSet2();
       generatDataSet3();
 
-      runAllSorts(timer);
+      runAllSorts(timer, "results"+to_string(i)+".txt");
    }
 }

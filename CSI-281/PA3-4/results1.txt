@@ -1,0 +1,24 @@
+
+
+MergeSort:
+   MergeSort | N: 100        | Dataset:dataSet1.data  Time: 0
+   MergeSort | N: 10000      | Dataset:dataSet1.data  Time: 2
+   MergeSort | N: 1000000    | Dataset:dataSet1.data  Time: 233
+   MergeSort | N: 100        | Dataset:dataSet2.data  Time: 0
+   MergeSort | N: 10000      | Dataset:dataSet2.data  Time: 1
+   MergeSort | N: 1000000    | Dataset:dataSet2.data  Time: 141
+   MergeSort | N: 100        | Dataset:dataSet3.data  Time: 0
+   MergeSort | N: 10000      | Dataset:dataSet3.data  Time: 1
+   MergeSort | N: 1000000    | Dataset:dataSet3.data  Time: 166
+
+
+QuickSort:
+   QuickSort | N: 100        | Dataset:dataSet1.data  Time: 0
+   QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 1
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 165
+   QuickSort | N: 100        | Dataset:dataSet2.data  Time: 0
+   QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 0
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 45
+   QuickSort | N: 100        | Dataset:dataSet3.data  Time: 0
+   QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 0
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 46

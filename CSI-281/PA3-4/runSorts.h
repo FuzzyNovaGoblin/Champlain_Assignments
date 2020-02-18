@@ -28,15 +28,15 @@ may, for the purpose of assessing this assignment:
 
 using namespace std;
 
-void runAllSorts(Timer& timer);
+void runAllSorts(Timer& timer, string fileName);
 
-void runBubbleSort(int N, string inputFileName, Timer &timer);
-void runCycleSort(int N, string inputFileName, Timer &timer);
-void runInsertionSort(int N, string inputFileName, Timer &timer);
-void runShellSort(int N, string inputFileName, Timer &timer);
-void runSelectionSort(int N, string inputFileName, Timer &timer);
-void runMergeSort(int N, string inputFileName, Timer &timer);
-void runQuickSort(int N, string inputFileName, Timer& timer);
+string runBubbleSort(int N, string inputFileName, Timer &timer);
+string runCycleSort(int N, string inputFileName, Timer &timer);
+string runInsertionSort(int N, string inputFileName, Timer &timer);
+string runShellSort(int N, string inputFileName, Timer &timer);
+string runSelectionSort(int N, string inputFileName, Timer &timer);
+string runMergeSort(int N, string inputFileName, Timer &timer);
+string runQuickSort(int N, string inputFileName, Timer& timer);
 
 
 #endif
