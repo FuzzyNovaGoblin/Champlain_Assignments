@@ -30,7 +30,7 @@ void runAllSorts(Timer &timer, string fileName)
 {
   ofstream outFile(fileName);
   string dataSet;
-  for (int i = 5; i < 7; i++)
+  for (int i = 0; i < 7; i++)
   {
 
     switch (i)
