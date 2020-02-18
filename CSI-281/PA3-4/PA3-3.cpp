@@ -28,12 +28,14 @@ using namespace std;
 int main()
 {
    srand(time(NULL));
-
-   generatDataSet1();
-   generatDataSet2();
-   generatDataSet3();
-
    Timer timer;
+   for (int i = 0; i < 3; i++)
+   {
+      cout << "Run (" << i+1 << "):";
+      generatDataSet1();
+      generatDataSet2();
+      generatDataSet3();
 
-   runAllSorts(timer);
+      runAllSorts(timer);
+   }
 }
