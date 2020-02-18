@@ -3,7 +3,7 @@ let myGame = null;
 class Game {
 //   rows;
 //   cols;
-//   
+//
 //   spaces;
 //   moves;
 //   complete;
@@ -349,5 +349,3 @@ const startGame = () => {
 
    myGame = new Game(Number(columns.value), Number(rows.value));
 }
-
-

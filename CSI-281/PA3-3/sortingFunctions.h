@@ -175,6 +175,7 @@ void selectionSort(T array[], int length)
   }
 }
 
+
 /*    pre: input array, lower bound, middle element, and upper bound
      post: the values of the 2 sub arrays are merged and sorted
   purpose: to merge 2 sub arrays
