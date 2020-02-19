@@ -28,8 +28,8 @@ Timer::Timer()
 {
    mPaused = false;
    mStoped = true;
-   mStartTime = milliseconds(0);
-   mEndTime = milliseconds(0);
+   mStartTime = microseconds(0);
+   mEndTime = microseconds(0);
 }
 
 bool Timer::isPaused()
@@ -47,7 +47,7 @@ bool Timer::start()
       return false;
    mStoped = false;
    mPaused = false;
-   mStartTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+   mStartTime = duration_cast<microseconds>(system_clock::now().time_since_epoch());
    return true;
 }
 
@@ -61,7 +61,7 @@ bool Timer::pause()
    {
       return false;
    }
-   mPauseTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+   mPauseTime = duration_cast<microseconds>(system_clock::now().time_since_epoch());
    mPaused = true;
    return true;
 }
@@ -75,8 +75,8 @@ bool Timer::resume()
    if (!mPaused)
       return false;
 
-   mResumeTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
-   milliseconds diff = mResumeTime - mPauseTime;
+   mResumeTime = duration_cast<microseconds>(system_clock::now().time_since_epoch());
+   microseconds diff = mResumeTime - mPauseTime;
    mStartTime += diff;
    mPaused = false;
    return true;
@@ -91,14 +91,14 @@ bool Timer::stop()
    if (mStoped)
       return false;
 
-   mEndTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+   mEndTime = duration_cast<microseconds>(system_clock::now().time_since_epoch());
    mStoped = true;
    mPaused = false;
    return true;
 }
 
 /*      Pre:  none
- *     Post:  returns the number of milliseconds the timer has recorder
+ *     Post:  returns the number of microseconds the timer has recorder
  *            up ot this point
  *  Purpose:  to get the time from the timer
  ************************************************************************/
@@ -114,7 +114,7 @@ long Timer::getTime()
    }
    else
    {
-      milliseconds now = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+      microseconds now = duration_cast<microseconds>(system_clock::now().time_since_epoch());
       return (now - mStartTime).count();
    }
 }

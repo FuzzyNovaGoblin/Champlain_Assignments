@@ -36,7 +36,6 @@ void runAllSorts(Timer &timer, string fileName)
     switch (i)
     {
     case 0:
-      break;
       cout << "\n\nBubbleSort:\n";
       outFile << "\n\nBubbleSort:\n";
       break;
@@ -50,7 +49,6 @@ void runAllSorts(Timer &timer, string fileName)
       outFile << "\n\nInsertionSort:\n";
       break;
     case 3:
-      break;
       cout << "\n\nShellSort:\n";
       outFile << "\n\nShellSort:\n";
       break;
@@ -77,7 +75,6 @@ void runAllSorts(Timer &timer, string fileName)
         switch (i)
         {
         case 0:
-          break;
           outFile << runBubbleSort(N_LIST[k], dataSet, timer);
           break;
         case 1:
@@ -88,7 +85,6 @@ void runAllSorts(Timer &timer, string fileName)
           outFile << runInsertionSort(N_LIST[k], dataSet, timer);
           break;
         case 3:
-          break;
           outFile << runShellSort(N_LIST[k], dataSet, timer);
           break;
         case 4:
@@ -123,7 +119,7 @@ string runBubbleSort(int N, string inputFileName, Timer &timer)
   readFileToArray(array, N, inputFileName);
 
   timer.start();
-  bubbleSort(array, N);
+  betterBubbleSort(array, N);
   timer.stop();
 
   stringstream ss;

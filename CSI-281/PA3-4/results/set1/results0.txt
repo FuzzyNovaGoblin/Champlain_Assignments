@@ -1,57 +1,48 @@
 
 
-BubbleSort:
-  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 0
-  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 315
-  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 0
-  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 0
-  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 0
-  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 275
-
-
-CycleSort:
-   CycleSort | N: 100        | Dataset:dataSet1.data  Time: 0
-   CycleSort | N: 10000      | Dataset:dataSet1.data  Time: 439
-   CycleSort | N: 100        | Dataset:dataSet2.data  Time: 0
-   CycleSort | N: 10000      | Dataset:dataSet2.data  Time: 109
-   CycleSort | N: 100        | Dataset:dataSet3.data  Time: 0
-   CycleSort | N: 10000      | Dataset:dataSet3.data  Time: 202
-
-
 InsertionSort:
 InsertionSort | N: 100        | Dataset:dataSet1.data  Time: 0
-InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 60
+InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 56
+InsertionSort | N: 1000000    | Dataset:dataSet1.data  Time: 559477
 InsertionSort | N: 100        | Dataset:dataSet2.data  Time: 0
 InsertionSort | N: 10000      | Dataset:dataSet2.data  Time: 0
+InsertionSort | N: 1000000    | Dataset:dataSet2.data  Time: 3
 InsertionSort | N: 100        | Dataset:dataSet3.data  Time: 0
-InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 118
-
-
-ShellSort:
+InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 113
+InsertionSort | N: 1000000    | Dataset:dataSet3.data  Time: 1118824
 
 
 SelectionSort:
 SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 0
-SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 110
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 106
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 1017585
 SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 0
-SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 107
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 102
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 1016406
 SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 0
-SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 187
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 150
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 1868445
 
 
 MergeSort:
    MergeSort | N: 100        | Dataset:dataSet1.data  Time: 0
    MergeSort | N: 10000      | Dataset:dataSet1.data  Time: 1
+   MergeSort | N: 1000000    | Dataset:dataSet1.data  Time: 212
    MergeSort | N: 100        | Dataset:dataSet2.data  Time: 0
    MergeSort | N: 10000      | Dataset:dataSet2.data  Time: 1
+   MergeSort | N: 1000000    | Dataset:dataSet2.data  Time: 126
    MergeSort | N: 100        | Dataset:dataSet3.data  Time: 0
    MergeSort | N: 10000      | Dataset:dataSet3.data  Time: 1
+   MergeSort | N: 1000000    | Dataset:dataSet3.data  Time: 129
 
 
 QuickSort:
    QuickSort | N: 100        | Dataset:dataSet1.data  Time: 0
    QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 1
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 140
    QuickSort | N: 100        | Dataset:dataSet2.data  Time: 0
    QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 0
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 43
    QuickSort | N: 100        | Dataset:dataSet3.data  Time: 0
    QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 0
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 45

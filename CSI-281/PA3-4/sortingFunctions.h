@@ -30,6 +30,33 @@ using namespace std;
   purpose: to sort the values of the array
 */
 template <typename T>
+void betterBubbleSort(T *array, int length)
+{
+  int lastSwaped, swaped = length - 1;
+  T tmp;
+  int i;
+  while (swaped > 0)
+  {
+    lastSwaped = swaped;
+    swaped = 0;
+    for (i = 0; i < lastSwaped; i++)
+    {
+      if (array[i] > array[i + 1])
+      {
+        swaped = i;
+        tmp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = tmp;
+      }
+    }
+  }
+}
+
+/*    pre: input array and a size
+     post: the values of the array are sorted
+  purpose: to sort the values of the array
+*/
+template <typename T>
 void bubbleSort(T *array, int length)
 {
   bool swaped = true;
@@ -146,7 +173,7 @@ void shellSort(T array[], int length)
     }
     gap = gap / 2;
   }
-  bubbleSort(array, length);
+  betterBubbleSort(array, length);
 }
 
 /*    pre: input array and a size

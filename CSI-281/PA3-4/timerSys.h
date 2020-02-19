@@ -27,7 +27,7 @@ using namespace std;
 class Timer
 {
 private:
-   chrono::milliseconds mStartTime, mEndTime, mPauseTime, mResumeTime;
+   chrono::microseconds mStartTime, mEndTime, mPauseTime, mResumeTime;
    bool mPaused, mStoped;
 
 public:
