@@ -118,3 +118,39 @@ long Timer::getTime()
       return (now - mStartTime).count();
    }
 }
+string Timer::getTimeReadable()
+{
+   long long cMicroseconds;
+   long long cMiliseconds;
+   long long cSeconds;
+   long long cMinutes;
+   long long cHours;
+   stringstream ss;
+   if (mStoped)
+   {
+      cMicroseconds = (mEndTime - mStartTime).count();
+   }
+   else if (mPaused)
+   {
+      cMicroseconds = (mPauseTime - mStartTime).count();
+   }
+   else
+   {
+      microseconds now = duration_cast<microseconds>(system_clock::now().time_since_epoch());
+      cMicroseconds = (now - mStartTime).count();
+   }
+   cMiliseconds = cMicroseconds / 1000;
+   cMicroseconds %= 1000;
+
+   cSeconds = cMiliseconds / 1000;
+   cMiliseconds %= 1000;
+
+   cMinutes = cSeconds / 60;
+   cSeconds %= 60;
+
+   cHours = cMinutes / 60;
+   cMinutes %= 60;
+
+   ss << setfill('0') << setw(2) << cHours << ':' << setw(2) << cMinutes << ':' << setw(2) << cSeconds << "." <<setw(3)<< cMiliseconds << setw(3) << cMicroseconds;
+   return ss.str();
+}

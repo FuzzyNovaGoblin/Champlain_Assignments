@@ -21,12 +21,12 @@ may, for the purpose of assessing this assignment:
 
 using namespace std;
 
-/*      Pre:  timer nad string name of output file
+/*      Pre:  timer, string name of output file, and bool array which sorts to run
  *     Post:  calls all of the other functions in the file with every posible
  *            set of paramaters
  *  Purpose:  To determine the efficency of the algorithems
  ************************************************************************/
-void runAllSorts(Timer &timer, string fileName)
+void runAllSorts(Timer &timer, string fileName, bool runSorts[7])
 {
   ofstream outFile(fileName);
   string dataSet;
@@ -36,31 +36,44 @@ void runAllSorts(Timer &timer, string fileName)
     switch (i)
     {
     case 0:
+      if (!runSorts[0])
+        break;
       cout << "\n\nBubbleSort:\n";
       outFile << "\n\nBubbleSort:\n";
       break;
     case 1:
-      break;
+      if (!runSorts[1])
+        break;
       cout << "\n\nCycleSort:\n";
       outFile << "\n\nCycleSort:\n";
       break;
     case 2:
+      if (!runSorts[2])
+        break;
       cout << "\n\nInsertionSort:\n";
       outFile << "\n\nInsertionSort:\n";
       break;
     case 3:
+      if (!runSorts[3])
+        break;
       cout << "\n\nShellSort:\n";
       outFile << "\n\nShellSort:\n";
       break;
     case 4:
+      if (!runSorts[4])
+        break;
       cout << "\n\nSelectionSort:\n";
       outFile << "\n\nSelectionSort:\n";
       break;
     case 5:
+      if (!runSorts[5])
+        break;
       cout << "\n\nMergeSort:\n";
       outFile << "\n\nMergeSort:\n";
       break;
     case 6:
+      if (!runSorts[6])
+        break;
       cout << "\n\nQuickSort:\n";
       outFile << "\n\nQuickSort:\n";
       break;
@@ -75,25 +88,38 @@ void runAllSorts(Timer &timer, string fileName)
         switch (i)
         {
         case 0:
+          if (!runSorts[0])
+            break;
           outFile << runBubbleSort(N_LIST[k], dataSet, timer);
           break;
         case 1:
-          break;
+          if (!runSorts[1])
+            break;
           outFile << runCycleSort(N_LIST[k], dataSet, timer);
           break;
         case 2:
+          if (!runSorts[2])
+            break;
           outFile << runInsertionSort(N_LIST[k], dataSet, timer);
           break;
         case 3:
+          if (!runSorts[3])
+            break;
           outFile << runShellSort(N_LIST[k], dataSet, timer);
           break;
         case 4:
+          if (!runSorts[4])
+            break;
           outFile << runSelectionSort(N_LIST[k], dataSet, timer);
           break;
         case 5:
+          if (!runSorts[5])
+            break;
           outFile << runMergeSort(N_LIST[k], dataSet, timer);
           break;
         case 6:
+          if (!runSorts[6])
+            break;
           outFile << runQuickSort(N_LIST[k], dataSet, timer);
           break;
         default:
@@ -124,9 +150,9 @@ string runBubbleSort(int N, string inputFileName, Timer &timer)
 
   stringstream ss;
   cout << setw(15) << right << "BubbleSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "BubbleSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -142,9 +168,9 @@ string runCycleSort(int N, string inputFileName, Timer &timer)
 
   stringstream ss;
   cout << setw(15) << right << "CycleSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "CycleSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -160,9 +186,9 @@ string runInsertionSort(int N, string inputFileName, Timer &timer)
 
   stringstream ss;
   cout << setw(15) << right << "InsertionSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "InsertionSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -178,9 +204,9 @@ string runShellSort(int N, string inputFileName, Timer &timer)
 
   stringstream ss;
   cout << setw(15) << right << "ShellSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "ShellSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -196,9 +222,9 @@ string runSelectionSort(int N, string inputFileName, Timer &timer)
 
   stringstream ss;
   cout << setw(15) << right << "SelectionSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "SelectionSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -214,9 +240,9 @@ string runMergeSort(int N, string inputFileName, Timer &timer)
   timer.stop();
   stringstream ss;
   cout << setw(15) << right << "MergeSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "MergeSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }
@@ -233,9 +259,9 @@ string runQuickSort(int N, string inputFileName, Timer &timer)
   stringstream ss;
 
   cout << setw(15) << right << "QuickSort | "
-       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+       << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   ss << setw(15) << right << "QuickSort | "
-     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTime() << endl;
+     << "N: " << left << setw(10) << N << " | Dataset:" << setw(15) << inputFileName << "Time: " << timer.getTimeReadable() << " (" << timer.getTime() << ") " << endl;
   delete[] array;
   return ss.str();
 }

@@ -25,17 +25,34 @@ may, for the purpose of assessing this assignment:
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
+   bool runSort[7] = {true, false, true, true, true, true, true};
+
    srand(time(NULL));
    Timer timer;
-   for (int i = 0; i < 3; i++)
-   {
-      cout << "Run (" << i+1 << "):";
-      generatDataSet1();
-      generatDataSet2();
-      generatDataSet3();
 
-      runAllSorts(timer, "results"+to_string(i)+".txt");
+   generatDataSet1();
+   generatDataSet2();
+   generatDataSet3();
+
+   if (argc > 1 && ((string)argv[1]).length() == 7)
+   {
+      for (int i = 0; i < 7; i++)
+      {
+         if (argv[1][i] == '0')
+            runSort[i] = false;
+         else
+            runSort[i] = true;
+      }
+   }
+
+   if (argc > 2)
+   {
+      runAllSorts(timer, argv[2], runSort);
+   }
+   else
+   {
+      runAllSorts(timer, "results.txt", runSort);
    }
 }

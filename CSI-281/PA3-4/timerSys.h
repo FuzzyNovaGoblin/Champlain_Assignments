@@ -21,6 +21,8 @@ may, for the purpose of assessing this assignment:
 #define TIMER_SYS_H
 
 #include <chrono>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -38,6 +40,7 @@ public:
    bool stop();
    bool isPaused();
    long getTime();
+   string getTimeReadable();
 };
 
 #endif

@@ -1,0 +1,12 @@
+
+
+MergeSort:
+   MergeSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000011 (11) 
+   MergeSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.001460 (1460) 
+   MergeSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.205525 (205525) 
+   MergeSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000007 (7) 
+   MergeSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000892 (892) 
+   MergeSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.118679 (118679) 
+   MergeSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000008 (8) 
+   MergeSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000936 (936) 
+   MergeSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.122690 (122690) 

@@ -28,7 +28,7 @@ may, for the purpose of assessing this assignment:
 
 using namespace std;
 
-void runAllSorts(Timer& timer, string fileName);
+void runAllSorts(Timer& timer, string fileName, bool runSorts[7]);
 
 string runBubbleSort(int N, string inputFileName, Timer &timer);
 string runCycleSort(int N, string inputFileName, Timer &timer);
