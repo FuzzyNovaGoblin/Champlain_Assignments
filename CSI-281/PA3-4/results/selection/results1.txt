@@ -1,0 +1,24 @@
+
+
+ShellSort:
+   ShellSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000016 (16) 
+   ShellSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.105528 (105528) 
+   ShellSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:21:37.458523 (1297458523) 
+   ShellSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1) 
+   ShellSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000252 (252) 
+   ShellSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.038047 (38047) 
+   ShellSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14) 
+   ShellSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.107173 (107173) 
+   ShellSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:17:31.317507 (1051317507) 
+
+
+SelectionSort:
+SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000014 (14) 
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.100983 (100983) 
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:16:45.746570 (1005746570) 
+SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000011 (11) 
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.100182 (100182) 
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:16:45.243407 (1005243407) 
+SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14) 
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.150434 (150434) 
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:31:19.661964 (1879661964) 
