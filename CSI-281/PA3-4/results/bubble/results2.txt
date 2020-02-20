@@ -1,0 +1,12 @@
+
+
+BubbleSort:
+  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000020 (20) 
+  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.226160 (226160) 
+  BubbleSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:45:31.200207 (2731200207) 
+  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1) 
+  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000021 (21) 
+  BubbleSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.002218 (2218) 
+  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000019 (19) 
+  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.178877 (178877) 
+  BubbleSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:30:02.120417 (1802120417) 
