@@ -1,0 +1,36 @@
+
+
+QuickSort:
+   QuickSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000006 (6)
+   QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.000934 (934)
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.129411 (129411)
+   QuickSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000004 (4)
+   QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000316 (316)
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.041451 (41451)
+   QuickSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000002 (2)
+   QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000419 (419)
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.041751 (41751)
+
+
+QuickSort:
+   QuickSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000006 (6)
+   QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.000935 (935)
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.131179 (131179)
+   QuickSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000004 (4)
+   QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000363 (363)
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.041460 (41460)
+   QuickSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000003 (3)
+   QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000318 (318)
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.041740 (41740)
+
+
+QuickSort:
+   QuickSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000007 (7)
+   QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.000935 (935)
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.130301 (130301)
+   QuickSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000003 (3)
+   QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000315 (315)
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.041427 (41427)
+   QuickSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000002 (2)
+   QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000362 (362)
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.041708 (41708)

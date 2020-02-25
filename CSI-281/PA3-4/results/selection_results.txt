@@ -1,0 +1,36 @@
+
+
+SelectionSort:
+SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.100983 (100983)
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:16:45.746570 (1005746570)
+SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000011 (11)
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.100182 (100182)
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:16:45.243407 (1005243407)
+SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.150434 (150434)
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:31:19.661964 (1879661964)
+
+
+SelectionSort:
+SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.100908 (100908)
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:16:44.964358 (1004964358)
+SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000011 (11)
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.100180 (100180)
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:16:44.820519 (1004820519)
+SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000015 (15)
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.149195 (149195)
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:31:13.418626 (1873418626)
+
+
+SelectionSort:
+SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.100767 (100767)
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:16:46.545982 (1006545982)
+SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000011 (11)
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.100314 (100314)
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:16:45.187645 (1005187645)
+SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000015 (15)
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.149231 (149231)
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:31:15.348057 (1875348057)

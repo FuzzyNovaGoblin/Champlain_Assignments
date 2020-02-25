@@ -1,0 +1,34 @@
+BubbleSort:
+  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000021 (21)
+  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.215824 (215824)
+  BubbleSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:45:31.610235 (2731610235)
+  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000000 (0)
+  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000022 (22)
+  BubbleSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.002192 (2192)
+  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000019 (19)
+  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.178004 (178004)
+  BubbleSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:30:06.636027 (1806636027)
+
+
+BubbleSort:
+  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000020 (20)
+  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.226160 (226160)
+  BubbleSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:45:31.200207 (2731200207)
+  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000021 (21)
+  BubbleSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.002218 (2218)
+  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000019 (19)
+  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.178877 (178877)
+  BubbleSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:30:02.120417 (1802120417)
+
+
+BubbleSort:
+  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000023 (23)
+  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.225643 (225643)
+  BubbleSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:45:24.415041 (2724415041)
+  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000000 (0)
+  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000021 (21)
+  BubbleSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.002192 (2192)
+  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000019 (19)
+  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.178224 (178224)
+  BubbleSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:30:01.111491 (1801111491)

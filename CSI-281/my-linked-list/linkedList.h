@@ -23,7 +23,7 @@ class LinkedList
    template <typename R>
    struct Node
    {
-      R       mData;
+      R mData;
       Node<R> *mNext;
 
       /*      Pre:  None
@@ -36,7 +36,6 @@ class LinkedList
          mNext = NULL;
       }
 
-
       /*      Pre:  None
        *     Post:  This object is initialized using specified data
        *  Purpose:  To intialize date object
@@ -48,30 +47,28 @@ class LinkedList
       }
    };
 
+private:
+   Node<T> *mHead, *mTail;
+   int mCount;
 
-   private:
-      Node<T> *mHead, *mTail;
-      int     mCount;
+public:
+   LinkedList();
+   ~LinkedList();
 
-   public:
-      LinkedList();
-      ~LinkedList();
+   int getCount();
+   T getData(int index);
+   void setData(int index, T data);
 
-      int  getCount();
-      T    getData(int index);
-      void setData(int index, T data);
+   void clear();
+   void display();
+   bool insert(T data);
+   bool isEmpty();
+   bool isExist(T searchKey);
+   bool remove(T searchKey);
+   T removeAt(int index);
 
-      void clear();
-      void display();
-      bool insert(T data);
-      bool isEmpty();
-      bool isExist(T searchKey);
-      bool remove(T searchKey);
-      T    removeAt(int index);
-
-      T    operator[](int index);
+   T operator[](int index);
 };
-
 
 /*      Pre:  None
  *     Post:  This object is initialized using the default
@@ -85,7 +82,6 @@ LinkedList<T>::LinkedList()
    mCount = 0;
 }
 
-
 /*      Pre:  None
  *     Post:  All the nodes in the list is deleted
  *  Purpose:  To remove all the nodes in the list
@@ -94,7 +90,6 @@ template <typename T>
 LinkedList<T>::~LinkedList()
 {
 }
-
 
 /*      Pre:  The object is instantiated
  *     Post:  The number of nodes in the linked list is returned to
@@ -107,7 +102,6 @@ int LinkedList<T>::getCount()
    return mCount;
 }
 
-
 /*      Pre:  The list is instantiated and the index is valid
  *     Post:  The data in the specified index is returned to the caller
  *  Purpose:  To retrieve the specified nodes in the list
@@ -116,7 +110,6 @@ template <typename T>
 T LinkedList<T>::getData(int index)
 {
 }
-
 
 /*      Pre:  The list is instantiated, the index is valid and the
  *            data is available
@@ -129,8 +122,6 @@ void LinkedList<T>::setData(int index, T data)
 {
 }
 
-
-
 /*      Pre:  The list is initiated
  *     Post:  All the nodes in the list is deleted
  *  Purpose:  To remove all the nodes in the list
@@ -140,8 +131,6 @@ void LinkedList<T>::clear()
 {
 }
 
-
-
 /*      Pre:  The list is instantiated
  *     Post:  The entire list is displayed on the screen
  *  Purpose:  To show the content of the list
@@ -150,7 +139,6 @@ template <typename T>
 void LinkedList<T>::display()
 {
 }
-
 
 /*      Pre:  The list is instantiated and the data is available
  *     Post:  The data is inserted in ascending order
@@ -163,11 +151,39 @@ bool LinkedList<T>::insert(T data)
 {
    T *newNode = new T;
    *newNode = data;
-   if(newNode == NULL){
+   if (newNode == NULL)
       return false;
+   if (mHead == nullptr)
+   {
+      mHead = newNode;
+      mTail = newNode;
+      return true;
+   }
+   else if (data <= mHead->mData)
+   {
+      newNode->mNext = mHead;
+      mHead = newNode;
+   }
+   else if (data >= mTail->mData)
+   {
+      newNode->mNext = mTail;
+      mTail = newNode;
+   }
+   else
+   {
+      Node<T> *curser = mHead;
+      while (curser != nullptr)
+      {
+         if (curser->data > data)
+         {
+            newNode->mNext = curser->mNext;
+            curser->mNext = newNode;
+            break;
+         }
+         curser = curser->mNext;
+      }
    }
 }
-
 
 /*      Pre:  The list is instantiated
  *     Post:  The function returns true is the list is empty; false
@@ -180,7 +196,6 @@ bool LinkedList<T>::isEmpty()
    return mHead == NULL;
 }
 
-
 /*      Pre:  The list is instantiated and the searchKey is available
  *     Post:  The function returns true if the search key exists in the
  *            list; otherwise false
@@ -189,8 +204,17 @@ bool LinkedList<T>::isEmpty()
 template <typename T>
 bool LinkedList<T>::isExist(T searchKey)
 {
+   Node<T> *curser = mHead;
+   while (curser != nullptr)
+   {
+      if (curser->mData == searchKey)
+         return true;
+      if (curser->mData > searchKey)
+         return false;
+      curser = curser->mNext;
+   }
+   return false;
 }
-
 
 /*      Pre:  The list is instantiated and the searchKey is available
  *     Post:  If the searchKey exists, removes it from the list and the
@@ -201,8 +225,16 @@ bool LinkedList<T>::isExist(T searchKey)
 template <typename T>
 bool LinkedList<T>::remove(T searchKey)
 {
+   Node<T> *curser = mHead;
+   while (curser != nullptr)
+   {
+      if (curser->mData == searchKey)
+         break;
+      curser = curser->mNext;
+   }
+   if (curser == nullptr)
+      return false;
 }
-
 
 /*      Pre:  The list is instantiated and the index is valid
  *     Post:  Remove the element in the specified index location and
@@ -215,7 +247,6 @@ T LinkedList<T>::removeAt(int index)
 {
 }
 
-
 /*      Pre:  The list is instantiated and the index is valid
  *     Post:  The data in the specified index is returned to the
  *            caller
@@ -223,7 +254,7 @@ T LinkedList<T>::removeAt(int index)
  *            operator
  ************************************************************************/
 template <typename T>
- T LinkedList<T>::operator[](int index)
+T LinkedList<T>::operator[](int index)
 {
 }
 

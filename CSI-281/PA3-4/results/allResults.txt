@@ -1,0 +1,72 @@
+BubbleSort:
+  BubbleSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000021 (21)
+  BubbleSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.215824 (215824)
+  BubbleSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:45:31.610235 (2731610235)
+  BubbleSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000000 (0)
+  BubbleSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000022 (22)
+  BubbleSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.002192 (2192)
+  BubbleSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000019 (19)
+  BubbleSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.178004 (178004)
+  BubbleSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:30:06.636027 (1806636027)
+
+
+InsertionSort:
+InsertionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000007 (7)
+InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.053721 (53721)
+InsertionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:09:08.870678 (548870678)
+InsertionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+InsertionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000032 (32)
+InsertionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.003244 (3244)
+InsertionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000013 (13)
+InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.112680 (112680)
+InsertionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:18:21.518769 (1101518769)
+
+
+
+SelectionSort:
+SelectionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.100983 (100983)
+SelectionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:16:45.746570 (1005746570)
+SelectionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000011 (11)
+SelectionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.100182 (100182)
+SelectionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:16:45.243407 (1005243407)
+SelectionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14)
+SelectionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.150434 (150434)
+SelectionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:31:19.661964 (1879661964)
+
+
+ShellSort:
+   ShellSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000016 (16)
+   ShellSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.105528 (105528)
+   ShellSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:21:37.458523 (1297458523)
+   ShellSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+   ShellSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000252 (252)
+   ShellSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.038047 (38047)
+   ShellSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14)
+   ShellSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.107173 (107173)
+   ShellSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:17:31.317507 (1051317507)
+
+
+MergeSort:
+   MergeSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000012 (12)
+   MergeSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.001468 (1468)
+   MergeSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.205722 (205722)
+   MergeSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000007 (7)
+   MergeSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000897 (897)
+   MergeSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.118129 (118129)
+   MergeSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000008 (8)
+   MergeSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000935 (935)
+   MergeSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.122010 (122010)
+
+
+QuickSort:
+   QuickSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000006 (6)
+   QuickSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.000934 (934)
+   QuickSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:00:00.129411 (129411)
+   QuickSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000004 (4)
+   QuickSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000316 (316)
+   QuickSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.041451 (41451)
+   QuickSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000002 (2)
+   QuickSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.000419 (419)
+   QuickSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:00:00.041751 (41751)
+

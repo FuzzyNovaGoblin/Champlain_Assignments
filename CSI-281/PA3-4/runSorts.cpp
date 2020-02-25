@@ -28,7 +28,7 @@ using namespace std;
  ************************************************************************/
 void runAllSorts(Timer &timer, string fileName, bool runSorts[7])
 {
-  ofstream outFile(fileName);
+  ofstream outFile(fileName, ios_base::app);
   string dataSet;
   for (int i = 0; i < 7; i++)
   {

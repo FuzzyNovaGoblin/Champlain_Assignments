@@ -1,0 +1,36 @@
+
+
+ShellSort:
+   ShellSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000016 (16)
+   ShellSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.105528 (105528)
+   ShellSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:21:37.458523 (1297458523)
+   ShellSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+   ShellSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000252 (252)
+   ShellSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.038047 (38047)
+   ShellSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000014 (14)
+   ShellSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.107173 (107173)
+   ShellSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:17:31.317507 (1051317507)
+
+
+ShellSort:
+   ShellSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000013 (13)
+   ShellSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.098633 (98633)
+   ShellSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:24:23.294647 (1463294647)
+   ShellSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+   ShellSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000252 (252)
+   ShellSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.038016 (38016)
+   ShellSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000015 (15)
+   ShellSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.107042 (107042)
+   ShellSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:17:30.814013 (1050814013)
+
+
+ShellSort:
+   ShellSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000016 (16)
+   ShellSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.122528 (122528)
+   ShellSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:24:36.363103 (1476363103)
+   ShellSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000002 (2)
+   ShellSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000253 (253)
+   ShellSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.038204 (38204)
+   ShellSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000015 (15)
+   ShellSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.107101 (107101)
+   ShellSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:17:35.358114 (1055358114)

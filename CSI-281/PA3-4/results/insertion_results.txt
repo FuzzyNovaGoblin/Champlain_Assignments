@@ -1,0 +1,36 @@
+
+
+InsertionSort:
+InsertionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000007 (7)
+InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.053721 (53721)
+InsertionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:09:08.870678 (548870678)
+InsertionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+InsertionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000032 (32)
+InsertionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.003244 (3244)
+InsertionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000013 (13)
+InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.112680 (112680)
+InsertionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:18:21.518769 (1101518769)
+
+
+InsertionSort:
+InsertionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000008 (8)
+InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.056785 (56785)
+InsertionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:09:10.748621 (550748621)
+InsertionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000000 (0)
+InsertionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000032 (32)
+InsertionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.003228 (3228)
+InsertionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000012 (12)
+InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.112307 (112307)
+InsertionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:18:22.301340 (1102301340)
+
+
+InsertionSort:
+InsertionSort | N: 100        | Dataset:dataSet1.data  Time: 00:00:00.000013 (13)
+InsertionSort | N: 10000      | Dataset:dataSet1.data  Time: 00:00:00.056602 (56602)
+InsertionSort | N: 1000000    | Dataset:dataSet1.data  Time: 00:09:10.122886 (550122886)
+InsertionSort | N: 100        | Dataset:dataSet2.data  Time: 00:00:00.000001 (1)
+InsertionSort | N: 10000      | Dataset:dataSet2.data  Time: 00:00:00.000031 (31)
+InsertionSort | N: 1000000    | Dataset:dataSet2.data  Time: 00:00:00.003158 (3158)
+InsertionSort | N: 100        | Dataset:dataSet3.data  Time: 00:00:00.000012 (12)
+InsertionSort | N: 10000      | Dataset:dataSet3.data  Time: 00:00:00.109524 (109524)
+InsertionSort | N: 1000000    | Dataset:dataSet3.data  Time: 00:18:20.423740 (1100423740)
