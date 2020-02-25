@@ -1,4 +1,20 @@
-"""Don't forget your docstring!"""
+"""Grant Hedley's code for Lab7.
+
+Author: Grant Hedley
+Class: CSI-275-1
+Assignment: Lab 7
+Due Date: 3/2/20
+
+Certification of Authenticity:
+I certify that this is entirely my own work, except where I have given
+fully-documented references to the work of others. I understand the definition
+and consequences of plagiarism and acknowledge that the assessor of this
+assignment may, for the purpose of assessing this assignment:
+- Reproduce this assignment and provide a copy to another member of academic
+- staff; and/or Communicate a copy of this assignment to a plagiarism checking
+- service (which may then retain a copy of this assignment on its database for
+- the purpose of future plagiarism checking)
+"""
 
 import argparse
 import socket
@@ -13,17 +29,20 @@ class UploadError(Exception):
 
 
 class UploadClient:
-    # TODO document this class and implement the specified functions
+    """Upload Client class.
+
+    this class is used to send and recive files or data, to and from
+    a given server
+    """
 
     def __init__(self, host, p):
-        pass
         """Initialize UploadClient class."""
         address = (host, int(p))
         self.tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.tcp_sock.settimeout(constants.MAX_TIMEOUT)
         try:
             self.tcp_sock.connect(address)
-        except ():
+        except Exception:
             raise ConnectionError()
 
         self.buffer = b''
@@ -45,32 +64,36 @@ class UploadClient:
         return data
 
     def recv_until_delimiter(self, delim):
+        """Recive data until delimiter.
+
+        calls recives as many bytes as posible from server and adds it to a
+        buffer, checkes if the delimiter is in the buffer. if not this is
+        repeated until delimiter is found, otherwise it returns the message
+        before the delimiter.
+        """
         not_found = True
         wait_time = constants.INITIAL_TIMEOUT
         while not_found:
+            for i in range(len(self.buffer)):
+                if self.buffer[i] == delim[0]:
+                    not_found = False
+                    hold = self.buffer[:i]
+                    self.buffer = self.buffer[i + 1:]
+                    return hold
             try:
                 self.tcp_sock.settimeout(wait_time)
                 more = self.tcp_sock.recv(constants.MAX_BYTES)
                 if not more:
-                    raise EOFError('expected %d bytes but not found'
-                                   % (delim))
+                    raise EOFError
                 self.buffer += more
-                print(self.buffer)
-                for i in range(len(self.buffer)):
-                    if self.buffer[i] == delim:
-                        not_found = False
-                        hold = self.buffer[:i]
-                        self.buffer = self.buffer[i + 1:]
-                        return hold
+
             except socket.timeout:
                 if wait_time >= constants.MAX_TIMEOUT:
-                    raise EOFError
+                    return "ERROR"
                 # exponential backoff of timeout
                 wait_time *= 2
                 if wait_time > constants.MAX_TIMEOUT:
                     wait_time = constants.MAX_TIMEOUT
-            except:
-                print("ERORRR")
 
     def upload_file(self, file_path):
         """Upload a file to the class's server.
@@ -88,10 +111,8 @@ class UploadClient:
                  + str(len(file_data)) + "\n"
         print(f"Sending {header}")
 
-        # TODO: Change tcp_sock here to match your __init__ function!
         self.tcp_sock.sendall(header.encode("ascii"))
 
-        # TODO: Change tcp_sock here to match your __init__ function!
         # Send the file data
         self.tcp_sock.sendall(file_data)
 
@@ -101,6 +122,27 @@ class UploadClient:
             raise UploadError
         else:
             print("Upload successful")
+
+    def list_files(self):
+        """List files sent to server.
+
+        sends comand to server to get a list of files that have been sent to
+        it. Then recives the response with the recv_until_delimiter method
+        all responses are added to a list of tuples, with the first element
+        the name of the file and the second an int representing the size of
+        the file. The method returns the list of tupples.
+        """
+        self.tcp_sock.sendall("LIST\n".encode("ASCII"))
+        data = self.recv_until_delimiter(b'\n')
+        all = []
+        while len(data) > 0:
+            if data == "ERROR":
+                raise UploadError
+            print(data)
+            data = data.decode("ascii")
+            all.append((str(data).split(' ')[0], int(str(data).split(' ')[1])))
+            data = self.recv_until_delimiter(b'\n')
+        return all
 
 
 def main():
