@@ -1,4 +1,4 @@
-/* ***       Author:  Wei Kian Chen
+/* ***       Author:  Grant Hedley
      *  Last Update:  September 27, 2019
      *        Class:  CSI-281
      *     Filename:  linkedList.h
@@ -7,7 +7,14 @@
      *      This is the template linked list definition.
      *
      *  Certification of Authenticity:
-     *     I certify that this assignment is entirely my own work.
+     *     I certify that this is entirely my own work, except where I have given
+     * fully-documented references to the work of others. I understand the definition
+     * and consequences of plagiarism and acknowledge that the assessor of this assignment
+     * may, for the purpose of assessing this assignment:
+     * - Reproduce this assignment and provide a copy to another member of academic staff; and/or
+     * - Communicate a copy of this assignment to a plagiarism checking service(which may then
+     * retain a copy of this assignment on its database for the purpose of future plagiarism
+     * checking)
      ********************************************************************/
 
 #ifndef LINKED_LIST
@@ -89,6 +96,7 @@ LinkedList<T>::LinkedList()
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
+   clear();
 }
 
 /*      Pre:  The object is instantiated
@@ -109,6 +117,16 @@ int LinkedList<T>::getCount()
 template <typename T>
 T LinkedList<T>::getData(int index)
 {
+   if (index < 0 || index >= mCount)
+      return T();
+   Node<T> *curser = mHead;
+   int i = 0;
+   while (i < index)
+   {
+      curser = curser->mNext;
+      i++;
+   }
+   return curser->mData;
 }
 
 /*      Pre:  The list is instantiated, the index is valid and the
@@ -120,6 +138,16 @@ T LinkedList<T>::getData(int index)
 template <typename T>
 void LinkedList<T>::setData(int index, T data)
 {
+   if (index < 0 || index >= mCount)
+      return;
+   Node<T> *curser = mHead;
+   int i = 0;
+   while (i < index)
+   {
+      curser = curser->mNext;
+      i++;
+   }
+   curser->mData = data;
 }
 
 /*      Pre:  The list is initiated
@@ -129,6 +157,16 @@ void LinkedList<T>::setData(int index, T data)
 template <typename T>
 void LinkedList<T>::clear()
 {
+   Node<T> *tmp = mHead, *last;
+   while (tmp != nullptr)
+   {
+      last = tmp;
+      tmp = tmp->mNext;
+      delete last;
+   }
+   mCount = 0;
+   mHead = nullptr;
+   mTail = nullptr;
 }
 
 /*      Pre:  The list is instantiated
@@ -138,6 +176,13 @@ void LinkedList<T>::clear()
 template <typename T>
 void LinkedList<T>::display()
 {
+   Node<T> *tmp = mHead;
+   for (int i = 0; i < mCount; i++)
+   {
+      cout << tmp->mData << " ";
+      tmp = tmp->mNext;
+   }
+   cout << endl;
 }
 
 /*      Pre:  The list is instantiated and the data is available
@@ -149,40 +194,54 @@ void LinkedList<T>::display()
 template <typename T>
 bool LinkedList<T>::insert(T data)
 {
-   T *newNode = new T;
-   *newNode = data;
+   bool inserted = false;
+   Node<T> *newNode = new Node<T>(data);
    if (newNode == NULL)
-      return false;
-   if (mHead == nullptr)
+      return inserted;
+   if (mHead == NULL)
    {
       mHead = newNode;
       mTail = newNode;
-      return true;
+      inserted = true;
    }
    else if (data <= mHead->mData)
    {
       newNode->mNext = mHead;
       mHead = newNode;
+      inserted = true;
    }
    else if (data >= mTail->mData)
    {
-      newNode->mNext = mTail;
+      mTail->mNext = newNode;
       mTail = newNode;
+      inserted = true;
    }
    else
    {
       Node<T> *curser = mHead;
       while (curser != nullptr)
       {
-         if (curser->data > data)
+         if (curser->mNext->mData > data)
          {
-            newNode->mNext = curser->mNext;
-            curser->mNext = newNode;
             break;
          }
          curser = curser->mNext;
       }
+
+      if (curser->mData == data)
+      {
+         inserted = false;
+      }
+      else
+      {
+         newNode->mNext = curser->mNext;
+         curser->mNext = newNode;
+         inserted = true;
+      }
    }
+   if (inserted)
+      mCount++;
+   return inserted;
 }
 
 /*      Pre:  The list is instantiated
@@ -225,15 +284,50 @@ bool LinkedList<T>::isExist(T searchKey)
 template <typename T>
 bool LinkedList<T>::remove(T searchKey)
 {
+   if (mHead == nullptr)
+      return false;
+
+   if (searchKey < mHead->mData ||
+       searchKey > mTail->mData)
+   {
+      return false;
+   }
+
    Node<T> *curser = mHead;
+
+   if (mHead->mData == searchKey)
+   {
+      mHead = mHead->mNext;
+      delete curser;
+      mCount--;
+      return true;
+   }
+
+   Node<T> *oneBefore = curser;
+
    while (curser != nullptr)
    {
       if (curser->mData == searchKey)
          break;
+
+      oneBefore = curser;
       curser = curser->mNext;
    }
    if (curser == nullptr)
       return false;
+   if (curser == mTail)
+   {
+      delete mTail;
+      oneBefore->mNext = nullptr;
+      mTail = oneBefore;
+      mCount--;
+      return true;
+   }
+   oneBefore->mNext = curser->mNext;
+   mCount--;
+   delete curser;
+
+   return true;
 }
 
 /*      Pre:  The list is instantiated and the index is valid
@@ -245,6 +339,34 @@ bool LinkedList<T>::remove(T searchKey)
 template <typename T>
 T LinkedList<T>::removeAt(int index)
 {
+   T data = T();
+   if (index < 0 || index >= mCount)
+      return data;
+   Node<T> *curser = mHead, *oneBefore;
+   int i = 0;
+   while (i < index)
+   {
+      oneBefore = curser;
+      curser = curser->mNext;
+      i++;
+   }
+   if (i == 0)
+   {
+      data = mHead->mData;
+      mHead = mHead->mNext;
+      delete curser;
+      mCount--;
+      return data;
+   }
+   if (i == mCount - 1)
+   {
+      mTail = oneBefore;
+   }
+   oneBefore->mNext = curser->mNext;
+   data = curser->mData;
+   delete curser;
+   mCount--;
+   return data;
 }
 
 /*      Pre:  The list is instantiated and the index is valid
@@ -256,6 +378,16 @@ T LinkedList<T>::removeAt(int index)
 template <typename T>
 T LinkedList<T>::operator[](int index)
 {
+   if (index < 0 || index >= mCount)
+      return T();
+   Node<T> *curser = mHead;
+   int i = 0;
+   while (i < index)
+   {
+      curser = curser->mNext;
+      i++;
+   }
+   return curser->mData;
 }
 
 #endif

@@ -10,7 +10,6 @@
      *     I certify that this assignment is entirely my own work.
      ********************************************************************/
 
-
 #include <iostream>
 #include "linkedList.h"
 
@@ -21,9 +20,9 @@ const int SIZE = 10;
 int main()
 {
    LinkedList<int> list;
-   int             i;
+   int i;
 
-   cout << "Testing isEmpty, expecting true, received " 
+   cout << "Testing isEmpty, expecting true, received "
         << (list.isEmpty() ? "true" : "false") << endl;
 
    for (i = 0; i <= SIZE; i += 2)
@@ -80,7 +79,7 @@ int main()
       cout << list[i] << " ";
    cout << endl;
 
-   cout << "Testing isEmpty, expecting false, received " 
+   cout << "Testing isEmpty, expecting false, received "
         << (list.isEmpty() ? "true" : "false") << endl;
 
    cout << "Testing isExist(6), expecting true, received "
