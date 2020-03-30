@@ -21,6 +21,7 @@ import _thread
 import time
 import datetime
 import json
+import zlib
 
 HOST = 'localhost'  # IP of server
 PORT = 7778         # Port of server
@@ -35,10 +36,10 @@ def handler(client_socket, addr):
     """
     while True:
         # Receive the data
-        data = clie21nt_socket.recv(4096)
+        data = client_socket.recv(4096)
         if not data:
             break
-
+        data = zlib.decompress(data)
         # Decode the data into a list
         data_list = json.loads(data.decode('utf-8'))
 
@@ -51,6 +52,13 @@ def handler(client_socket, addr):
 
         # Validate data
         is_error = False
+
+        sort_val = data_list[0]
+        if sort_val != "a" and sort_val != "d" and sort_val != "s":
+            is_error = True
+        data_list = data_list[1:]
+
+
         for element in data_list:
             try:
                 # This will allow numeric data through
@@ -61,8 +69,11 @@ def handler(client_socket, addr):
 
         return_data = ""
         if not is_error:
+            if sort_val == "s":
+                for i in range(len(data_list)):
+                    data_list[i] = str(data_list[i])
             # Sort data
-            data_list.sort()
+            data_list.sort(reverse=sort_val == "d")
 
             # Return the data to the client
             return_data = json.dumps(data_list)

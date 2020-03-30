@@ -19,6 +19,7 @@ assignment may, for the purpose of assessing this assignment:
 
 import json
 import socket
+import zlib
 
 def build_list():
     """Collect input from the user and return it as a list.
@@ -28,6 +29,12 @@ def build_list():
     unsorted_list = []
     # Create a variable for input
     user_input = ""
+
+    while user_input.lower() != "1" and user_input.lower() != "2" and user_input.lower() != "3":
+        user_input = input("How would you like to sort values?\n1) Ascending\n2) Descending\n3) Aphabetically\n")
+
+    unsorted_list.append("a" if user_input == "1" else "d" if user_input == "2" else "s")
+
     while user_input != "done":
         # Prompt the user for input
         user_input = input("Please enter a number, or 'done' to stop.")
@@ -51,8 +58,20 @@ def build_list():
 
 
 def sort_list(unsorted_list):
-    """Put your docstring here."""
+    """Has server sort list.
+
+    sends unsorted list to server
+    waits for a response
+    decodes and prints the response
+    """
+    print(unsorted_list)
     data = json.dumps(unsorted_list).encode("utf-8")
+
+    print("pre compress size:", len(data))
+    data = zlib.compress(data)
+    print("post compress size:", len(data))
+
+
     sock = socket.socket()
     sock.connect(('127.0.0.1', 7778))
     sock.sendall(data)
@@ -64,6 +83,7 @@ def sort_list(unsorted_list):
 def main():
     """Call the build_list and sort_list functions, and print the result."""
     number_list = build_list()
+
     sort_list(number_list)
 
 

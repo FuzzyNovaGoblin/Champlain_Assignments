@@ -1,0 +1,2 @@
+part 3 question: 16 is the smallest value of x where the compressed json is
+smallerthan the uncompressed json
