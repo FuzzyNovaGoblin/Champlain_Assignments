@@ -25,7 +25,7 @@
 #define _BST_H
 
 #include <iostream>
-//#include "queue.h"
+#include "queue.h"
 
 using namespace std;
 
@@ -155,6 +155,8 @@ BST<T>::~BST()
 template <typename T>
 bool BST<T>::bfs(T searchKey)
 {
+   //TODO: get rid
+   return true;
 }
 
 /*      Pre:  The BST is instantiated
@@ -175,11 +177,12 @@ void BST<T>::clear()
 template <typename T>
 void BST<T>::destroySubtree(Node<T> *&node)
 {
-   if(node->mRight != NULL)
+   if (node->mRight != NULL)
       destroySubtree(node->mRight);
-   if(node->mLeft != NULL)
+   if (node->mLeft != NULL)
       destroySubtree(node->mLeft);
    delete node;
+   node = NULL;
 }
 
 /*      Pre:  A search key
@@ -190,6 +193,7 @@ void BST<T>::destroySubtree(Node<T> *&node)
 template <typename T>
 bool BST<T>::dfs(T searchKey)
 {
+   //ToDO:this
 }
 
 /*      Pre:  A node within a tree
@@ -200,6 +204,11 @@ bool BST<T>::dfs(T searchKey)
 template <typename T>
 void BST<T>::displayInOrder(Node<T> *node)
 {
+   if (node == NULL)
+      return;
+   displayInOrder(node->mLeft);
+   cout << node->mData << " ";
+   displayInOrder(node->mRight);
 }
 
 /*      Pre:  A node within a tree
@@ -210,6 +219,12 @@ void BST<T>::displayInOrder(Node<T> *node)
 template <typename T>
 void BST<T>::displayPreOrder(Node<T> *node)
 {
+   if (node != NULL)
+   {
+      cout << node->mData << " ";
+      displayPreOrder(node->mLeft);
+      displayPreOrder(node->mRight);
+   }
 }
 
 /*      Pre:  A node within a tree
@@ -220,6 +235,11 @@ void BST<T>::displayPreOrder(Node<T> *node)
 template <typename T>
 void BST<T>::displayPostOrder(Node<T> *node)
 {
+   if (node == NULL)
+      return;
+   displayPostOrder(node->mLeft);
+   displayPostOrder(node->mRight);
+   cout << node->mData << " ";
 }
 
 /*      Pre:  A node within a tree
@@ -238,6 +258,8 @@ void BST<T>::displayTree(Node<T> *node, int tab)
 template <typename T>
 int BST<T>::getHeight()
 {
+   //TODO: get rid
+   return 0;
 }
 
 /*      Pre:  A data to insert into a BST
@@ -318,6 +340,8 @@ bool BST<T>::isExists(T searchKey)
 template <typename T>
 int BST<T>::leavesCount()
 {
+   //TODO: get rid
+   return true;
 }
 
 /*      Pre:  A node within the BST
@@ -336,21 +360,19 @@ void BST<T>::makeDeletion(Node<T> *&node)
    Node<T> *attachPoint;
 
    if (node->mRight == NULL)
-      node = node->mLeft
+      node = node->mLeft;
+   else if (node->mLeft == NULL)
+      node = node->mRight;
+   else
+   {
+      attachPoint = node->mRight;
+      while (attachPoint->mLeft != NULL)
+         attachPoint = attachPoint->mLeft;
 
-             else if (node->mLeft == NULL)
-                 node = node->mRight
+      attachPoint->mLeft = node->mLeft;
 
-                        else
-      {
-         attachPoint = node->mRight;
-         while (attachPoint->mLeft != NULL)
-            attachPoint = attachPoint->mLeft;
-
-         attachPoint->mLeft = node->mLeft;
-
-         node = node->mRight;
-      }
+      node = node->mRight;
+   }
    delete toBeDeleted;
 }
 
@@ -361,6 +383,8 @@ void BST<T>::makeDeletion(Node<T> *&node)
 template <typename T>
 int BST<T>::nodesCount()
 {
+   //TODO: get rid
+   return 0;
 }
 
 /*      Pre:  None
@@ -405,11 +429,11 @@ void BST<T>::remove(Node<T> *&node, const T &searchKey)
    }
    else if (node->mData < searchKey)
    {
-      remove(node->mRight, searchKey)
+      remove(node->mRight, searchKey);
    }
    else if (node->mData > searchKey)
    {
-      remove(node->mLeft, searchKey)
+      remove(node->mLeft, searchKey);
    }
    else
    {

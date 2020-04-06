@@ -18,11 +18,11 @@ using namespace std;
 int main()
 {
    DoublyLinkedList<int> *list;
-   int             i;
+   int i;
 
    list = new DoublyLinkedList<int>;
 
-   cout << "Testing isEmpty, expecting true, received " 
+   cout << "Testing isEmpty, expecting true, received "
         << (list->isEmpty() ? "true" : "false") << endl;
 
    for (i = 0; i <= 10; i += 2)
@@ -41,7 +41,7 @@ int main()
    list->displayInReverse();
    cout << endl;
 
-   cout << "Testing isEmpty, expecting false, received " 
+   cout << "Testing isEmpty, expecting false, received "
         << (list->isEmpty() ? "true" : "false") << endl;
 
    cout << "Testing isExist(6), expecting true, received "

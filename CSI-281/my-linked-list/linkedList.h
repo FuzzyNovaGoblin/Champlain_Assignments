@@ -284,50 +284,6 @@ bool LinkedList<T>::isExist(T searchKey)
 template <typename T>
 bool LinkedList<T>::remove(T searchKey)
 {
-   if (mHead == nullptr)
-      return false;
-
-   if (searchKey < mHead->mData ||
-       searchKey > mTail->mData)
-   {
-      return false;
-   }
-
-   Node<T> *curser = mHead;
-
-   if (mHead->mData == searchKey)
-   {
-      mHead = mHead->mNext;
-      delete curser;
-      mCount--;
-      return true;
-   }
-
-   Node<T> *oneBefore = curser;
-
-   while (curser != nullptr)
-   {
-      if (curser->mData == searchKey)
-         break;
-
-      oneBefore = curser;
-      curser = curser->mNext;
-   }
-   if (curser == nullptr)
-      return false;
-   if (curser == mTail)
-   {
-      delete mTail;
-      oneBefore->mNext = nullptr;
-      mTail = oneBefore;
-      mCount--;
-      return true;
-   }
-   oneBefore->mNext = curser->mNext;
-   mCount--;
-   delete curser;
-
-   return true;
 }
 
 /*      Pre:  The list is instantiated and the index is valid

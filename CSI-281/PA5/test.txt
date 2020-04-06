@@ -1,0 +1,25 @@
+Test LinkedList
+	make 100,000 insertions: 00:00:38.622742
+	retrive 1,000 random elements: 00:00:00.313428
+	traverse and print all elements: 00:00:00.094023
+	traverse and print all elements: 00:01:23.777422
+	delete all elements: 00:00:00.003458
+Test DoublyLinkedList
+Test LinkedList
+	make 100,000 insertions: 00:00:38.272427
+	retrive 1,000 random elements: 00:00:00.305803
+	traverse and print all elements: 00:00:00.954828
+	traverse and print all elements: 00:01:24.802027
+	delete all elements: 00:00:00.002313
+Test DoublyLinkedList
+	make 100,000 insertions: 00:00:41.835278
+	retrive 1,000 random elements: 00:00:00.304943
+	traverse and print all elements: 00:00:00.971158
+	traverse and print all elements backwards: 00:00:00.948307
+	delete all elements: 00:00:00.951057
+Test Array
+	make 100,000 insertions: 00:00:00.001279
+	retrive 1,000 random elements: 00:00:00.000184
+	traverse and print all elements: 00:00:03.461885
+	traverse and print all elements: 00:00:03.468349
+	delete all elements: 00:00:00.000199

@@ -251,6 +251,53 @@ bool DoublyLinkedList<T>::isExist(T searchKey)
 template <typename T>
 bool DoublyLinkedList<T>::remove(T searchKey)
 {
+
+   if (mHead == nullptr)
+      return false;
+
+   if (searchKey < mHead->mData ||
+       searchKey > mTail->mData)
+   {
+      return false;
+   }
+
+   Node<T> *curser = mHead;
+
+   if (mHead->mData == searchKey)
+   {
+      mHead = mHead->mNext;
+      mHead->mPrevious = nullptr;
+      delete curser;
+      mCount--;
+      return true;
+   }
+
+   Node<T> *oneBefore = curser;
+
+   while (curser != nullptr)
+   {
+      if (curser->mData == searchKey)
+         break;
+
+      oneBefore = curser;
+      curser = curser->mNext;
+   }
+   if (curser == nullptr)
+      return false;
+   if (curser == mTail)
+   {
+      delete mTail;
+      oneBefore->mNext = nullptr;
+      mTail = oneBefore;
+      mCount--;
+      return true;
+   }
+   oneBefore->mNext = curser->mNext;
+   curser->mNext->mPrevious = oneBefore;
+   mCount--;
+   delete curser;
+
+   return true;
 }
 
 /*      Pre:  The list is instantiated and the index for the node to be deleted
@@ -264,6 +311,34 @@ bool DoublyLinkedList<T>::remove(T searchKey)
 template <typename T>
 T DoublyLinkedList<T>::removeAt(int index)
 {
+   T data = T();
+   if (index < 0 || index >= mCount)
+      return data;
+   Node<T> *curser = mHead, *oneBefore;
+   int i = 0;
+   while (i < index)
+   {
+      oneBefore = curser;
+      curser = curser->mNext;
+      i++;
+   }
+   if (i == 0)
+   {
+      data = mHead->mData;
+      mHead = mHead->mNext;
+      delete curser;
+      mCount--;
+      return data;
+   }
+   if (i == mCount - 1)
+   {
+      mTail = oneBefore;
+   }
+   oneBefore->mNext = curser->mNext;
+   data = curser->mData;
+   delete curser;
+   mCount--;
+   return data;
 }
 
 #endif
