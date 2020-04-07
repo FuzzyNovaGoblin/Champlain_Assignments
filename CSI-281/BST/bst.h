@@ -155,8 +155,19 @@ BST<T>::~BST()
 template <typename T>
 bool BST<T>::bfs(T searchKey)
 {
-   //TODO: get rid
-   return true;
+   Queue<Node<T>*> queue;
+   queue.enqueue(mHead);
+   Node<T> *tmp;
+   while(!queue.isEmpty()){
+      tmp = queue.dequeue();
+      if(tmp->mData == searchKey)
+         return true;
+      if (tmp->mRight != NULL)
+         queue.enqueue(tmp->mRight);
+      if (tmp->mLeft != NULL)
+         queue.enqueue(tmp->mLeft);
+   }
+   return false;
 }
 
 /*      Pre:  The BST is instantiated
