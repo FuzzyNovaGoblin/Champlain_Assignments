@@ -1,10 +1,10 @@
 /*
 Author:       Grant Hedley
 Class: 	      CSI-281 - 01
-Assignment: PA3 part 1
-Date Assigned: 2/4/20
-Due Date: 2/7/20
-Description: bubble sort and insertion sort algorithems
+Assignment:
+Date Assigned:
+Due Date:
+Description:
 
 Certification of Authenticity:
 I certify that this is entirely my own work, except where I have given

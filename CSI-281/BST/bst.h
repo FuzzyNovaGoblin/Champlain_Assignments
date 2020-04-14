@@ -88,6 +88,7 @@ private:
    void insert(Node<T> *&node, const T &data);
    void makeDeletion(Node<T> *&node);
    void remove(Node<T> *&node, const T &searchKey);
+   int getNodeHeight(Node<T> *node);
 
 public:
    BST();
@@ -155,12 +156,13 @@ BST<T>::~BST()
 template <typename T>
 bool BST<T>::bfs(T searchKey)
 {
-   Queue<Node<T>*> queue;
-   queue.enqueue(mHead);
+   Queue<Node<T> *> queue;
+   queue.enqueue(mRootNode);
    Node<T> *tmp;
-   while(!queue.isEmpty()){
+   while (!queue.isEmpty())
+   {
       tmp = queue.dequeue();
-      if(tmp->mData == searchKey)
+      if (tmp->mData == searchKey)
          return true;
       if (tmp->mRight != NULL)
          queue.enqueue(tmp->mRight);
@@ -204,7 +206,20 @@ void BST<T>::destroySubtree(Node<T> *&node)
 template <typename T>
 bool BST<T>::dfs(T searchKey)
 {
-   //ToDO:this
+   Stack<Node<T> *> stack;
+   stack.push(mRootNode);
+   Node<T> *tmp;
+   while (!stack.isEmpty())
+   {
+      tmp = stack.pop();
+      if (tmp->mData == searchKey)
+         return true;
+      if (tmp->mRight != NULL)
+         queue.enqueue(tmp->mRight);
+      if (tmp->mLeft != NULL)
+         queue.enqueue(tmp->mLeft);
+   }
+   return false;
 }
 
 /*      Pre:  A node within a tree
@@ -260,17 +275,41 @@ void BST<T>::displayPostOrder(Node<T> *node)
 template <typename T>
 void BST<T>::displayTree(Node<T> *node, int tab)
 {
+   for (int i = 0; i < tab; i++)
+   {
+      cout << "\t";
+   }
+   cout << node->mData << endl;
+   if (node->mLeft != NULL)
+      displayTree(node->mLeft, tab + 1);
+   if (node->mRight != NULL)
+      displayTree(node->mRight, tab + 1);
 }
 
 /*      Pre:  None
- *     Post:  The height of a tree is returned
+ *     Post:  The height of a tree is returned, -1 if tree is empty
  *  Purpose:  To compute the longest branch within the BST
  **************************************************************/
 template <typename T>
 int BST<T>::getHeight()
 {
-   //TODO: get rid
-   return 0;
+   return getNodeHeight(mRootNode);
+}
+
+/*      Pre:  None
+ *     Post:  The height of a node is returned
+ *  Purpose:  To compute the height of a single node within the BST
+ **************************************************************/
+template <typename T>
+int BST<T>::getNodeHeight(Node<T> *node)
+{
+   if (node == NULL)
+      return -1;
+   int rightHeight, leftHeight;
+   rightHeight = 1 + getNodeHeight(node->mRight);
+   leftHeight = 1 + getNodeHeight(node->mLeft);
+
+   return rightHeight > leftHeight ? rightHeight : l
 }
 
 /*      Pre:  A data to insert into a BST
@@ -351,8 +390,22 @@ bool BST<T>::isExists(T searchKey)
 template <typename T>
 int BST<T>::leavesCount()
 {
-   //TODO: get rid
-   return true;
+   Queue<Node<T> *> queue;
+   Node<T> *tmp;
+   int count = 0;
+
+   queue.enqueue(mRootNode);
+   while (!queue.isEmpty())
+   {
+      tmp = queue.dequeue();
+      if (tmp->mRight == NULL && tmp->mLeft == NULL)
+         cout++;
+      if (tmp->mRight != NULL)
+         queue.enqueue(tmp->mRight);
+      if (tmp->mLeft != NULL)
+         queue.enqueue(tmp->mLeft);
+   }
+   return count;
 }
 
 /*      Pre:  A node within the BST
@@ -394,8 +447,21 @@ void BST<T>::makeDeletion(Node<T> *&node)
 template <typename T>
 int BST<T>::nodesCount()
 {
-   //TODO: get rid
-   return 0;
+   Queue<Node<T> *> queue;
+   Node<T> *tmp;
+   int count = 0;
+
+   queue.enqueue(mRootNode);
+   while (!queue.isEmpty())
+   {
+      tmp = queue.dequeue();
+      cout++;
+      if (tmp->mRight != NULL)
+         queue.enqueue(tmp->mRight);
+      if (tmp->mLeft != NULL)
+         queue.enqueue(tmp->mLeft);
+   }
+   return count;
 }
 
 /*      Pre:  None
@@ -411,6 +477,27 @@ int BST<T>::nodesCount()
 template <typename T>
 void BST<T>::printPath(T searchKey)
 {
+   stringstream ss;
+   Node<T> *tmp = mRootNode;
+   while (tmp != NULL)
+   {
+      ss << tmp->mData;
+      if (tmp->mData == searchKey)
+      {
+         cout << ss.str() << endl;
+         return;
+      }
+      if (searchKey > tmp->mData)
+      {
+         tmp = tmp->mRight;
+      }
+      else
+      {
+         tmp = tmp->mLeft;
+      }
+      ss << ", ";
+   }
+   cout << "Search key is not found in the tree\n";
 }
 
 /*      Pre:  A search key
@@ -498,6 +585,7 @@ void BST<T>::showPostOrder()
 template <typename T>
 void BST<T>::showTree()
 {
+   displayTree(mRootNode, 0);
 }
 
 #endif
