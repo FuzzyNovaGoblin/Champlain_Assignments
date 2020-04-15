@@ -14,7 +14,7 @@ void testArray(int dataArr[]);
 int main(int argc, char **argv)
 {
    srand(time(NULL));
-   int dataArr[100000];
+   int dataArr[1000000];
 
    if (argc < 2)
    {
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
    if (argv[1][0] == '0')
    {
       ofstream file("out.data");
-      for (int i = 0; i < 100000; i++)
+      for (int i = 0; i < 1000000; i++)
       {
          file << rand() % 1000 << " ";
       }
@@ -74,15 +74,15 @@ void testLinkedList(int dataArr[])
    cout << timer.getTimeReadable() << endl;
    outFile << "\tmake 100,000 insertions: " << timer.getTimeReadable() << endl;
 
-   // get 100,000 elements
+   // get 1,000,000 elements
    timer.start();
-   for (int i = 0; i < 100000; i++)
+   for (int i = 0; i < 1000000; i++)
    {
       ll[dataArr[i]];
    }
    timer.stop();
    cout << timer.getTimeReadable() << endl;
-   outFile << "\tretrive 1,000 random elements: " << timer.getTimeReadable() << endl;
+   outFile << "\tretrive 1,000,000 random elements: " << timer.getTimeReadable() << endl;
 
    //display all elemanets
    timer.start();
@@ -100,7 +100,7 @@ void testLinkedList(int dataArr[])
    cout << endl;
    timer.stop();
    cout << timer.getTimeReadable() << endl;
-   outFile << "\ttraverse and print all elements: " << timer.getTimeReadable() << endl;
+   outFile << "\ttraverse and print all elements backwards: " << timer.getTimeReadable() << endl;
 
    //delete all
    timer.start();
@@ -129,15 +129,15 @@ void testDoublyLinkedList(int dataArr[])
    cout << timer.getTimeReadable() << endl;
    outFile << "\tmake 100,000 insertions: " << timer.getTimeReadable() << endl;
 
-   // get 100,000 elements
+   // get 1,000,000 elements
    timer.start();
-   for (int i = 0; i < 100000; i++)
+   for (int i = 0; i < 1000000; i++)
    {
       dll.getData(dataArr[i]);
    }
    timer.stop();
    cout << timer.getTimeReadable() << endl;
-   outFile << "\tretrive 1,000 random elements: " << timer.getTimeReadable() << endl;
+   outFile << "\tretrive 1,000,000 random elements: " << timer.getTimeReadable() << endl;
 
    //display all elemanets
    timer.start();
@@ -166,10 +166,21 @@ void testArray(int dataArr[])
    outFile << "Test Array" << endl;
 
    //insert 100,000 elements
+   int newData, j, k;
    timer.start();
    for (int i = 0; i < 100000; i++)
    {
-      arr[i] = dataArr[i];
+      newData = dataArr[i];
+      for (j = 0; j < 100000; j++)
+      {
+         if (arr[j] < newData)
+            break;
+      }
+      for (k = 99999; k > j; k--)
+      {
+         arr[k] = arr[k - 1];
+      }
+      arr[j] = newData;
    }
 
    cout << endl;
@@ -177,15 +188,15 @@ void testArray(int dataArr[])
    cout << timer.getTimeReadable() << endl;
    outFile << "\tmake 100,000 insertions: " << timer.getTimeReadable() << endl;
 
-   // get 100,000 elements
+   // get 1,000,000 elements
    timer.start();
-   for (int i = 0; i < 100000; i++)
+   for (int i = 0; i < 1000000; i++)
    {
       arr[dataArr[i]];
    }
    timer.stop();
    cout << timer.getTimeReadable() << endl;
-   outFile << "\tretrive 1,000 random elements: " << timer.getTimeReadable() << endl;
+   outFile << "\tretrive 1,000,000 random elements: " << timer.getTimeReadable() << endl;
 
    //display all elemanets
    timer.start();
@@ -207,7 +218,7 @@ void testArray(int dataArr[])
    cout << endl;
    timer.stop();
    cout << timer.getTimeReadable() << endl;
-   outFile << "\ttraverse and print all elements: " << timer.getTimeReadable() << endl;
+   outFile << "\ttraverse and print all elements backwards: " << timer.getTimeReadable() << endl;
 
    //delete all
    timer.start();
