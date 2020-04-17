@@ -22,11 +22,11 @@ input_win = None
 
 def refresh():
     msg_pad.resize(curses.LINES-2, curses.COLS)
-    if len(msgs) < curses.LINES - 3:
-        #msg_pad.refresh(0, 0, 0, 0, curses.LINES - 1, curses.COLS - 1)
-        msg_pad.refresh(0, 0, curses.LINES - 5 - len(msgs), 0, curses.LINES -4 , curses.COLS - 1)
-    else:
-        msg_pad.refresh(0, 0, 0, 0, curses.LINES - 3, curses.COLS - 1)
+    while len(msgs) > curses.LINES - 3:
+        del msgs[0]
+    msg_pad.refresh(0, 0, curses.LINES - 5 - len(msgs), 0, curses.LINES -4 , curses.COLS - 1)
+    # else:
+    #     msg_pad.refresh(len(msgs)-curses.LINES-4, 0, 0, 0, curses.LINES - 4, curses.COLS - 1)
 
     for i in range(len(msgs)):
         msg_pad.move(i,0)
