@@ -12,10 +12,25 @@ def handle_start(data_arr, connection):
     users[name] = connection
     print(name, "connected")
 
+    json_data = json.dumps(name + " has joined the chat").encode("utf-8")
+    data = len(json_data).to_bytes(4, 'big') + json_data
+    for name, conn in users.items():
+        try:
+            conn.sendall(data)
+        except Exception:
+            del users[name]
+
 def handle_exit(data_arr):
     users[data_arr[1]].close()
     del users[data_arr[1]]
     print(data_arr[1], "left")
+    json_data = json.dumps(data_arr[1] + " has left the chat").encode("utf-8")
+    data = len(json_data).to_bytes(4, 'big') + json_data
+    for name, conn in users.items():
+        try:
+            conn.sendall(data)
+        except Exception:
+            del users[name]
 
 
 def handle_broadcast(data_arr):
