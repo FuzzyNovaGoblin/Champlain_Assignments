@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <
 
 using namespace std;
 
@@ -123,8 +124,8 @@ AVL<T>::AVL(T data, Node<T> *left, Node<T> *right)
 {
    Node<T> *newNode;
 
-   newNode = new Node(data, left, right);
-   
+   newNode = new Node<T>(data, left, right);
+
    if (newNode != NULL)
    {
 	  newNode->mHeight = maxHeight(left, right) + 1;
@@ -205,6 +206,7 @@ void AVL<T>::displayPostOrder(Node<T> *node)
 template <typename T>
 void AVL<T>::displayTree(Node<T> *node, int tab)
 {
+   cout << ws
 }
 
 
@@ -217,6 +219,7 @@ void AVL<T>::displayTree(Node<T> *node, int tab)
 template <typename T>
 int AVL<T>::getBalance(Node<T> *node)
 {
+   return node->mRight->mHeight - node->mLeft->mHeight;
 }
 
 
@@ -261,14 +264,14 @@ void AVL<T>::insert(T data)
 template <typename T>
 void AVL<T>::insert(Node<T> *&node, const T &data)
 {
-   // If the tree is empty, make a new node and make it 
+   // If the tree is empty, make a new node and make it
    // the root of the tree.
    if (node == NULL)
-   { 
+   {
       node = new Node<T>(data);
       return;
    }
-		
+
    // If num is already in tree: return.
    if (node->mData == data)
       return;
@@ -329,31 +332,31 @@ bool AVL<T>::isExists(T searchKey)
  *            branch.  However, if the node has two children,
  *            then the right child will serve as the new root
  *            node for the branch.  Once the deletion is
- *            completed, the height and balance factor for the 
+ *            completed, the height and balance factor for the
  *            new root will be computed.  If the tree is out of
- *            balance, it will be rotated.  The acceptable 
+ *            balance, it will be rotated.  The acceptable
  *            balance factors are {-1, 0, 1}.
  **************************************************************/
 template <typename T>
 void AVL<T>::makeDeletion(Node<T> *&node)
 {
    // Used to hold node that will be deleted.
-   Node<T> *nodeToDelete = node; 
-	
-   // Used to locate the  point where the 
+   Node<T> *nodeToDelete = node;
+
+   // Used to locate the  point where the
    // left subtree is attached.
-   Node<T> *attachPoint;          
-			
-   // Replace tree with its left subtree.	
+   Node<T> *attachPoint;
+
+   // Replace tree with its left subtree.
    if (node->mRight == NULL)
    {
       node = node->mLeft;
-   }    
-   // Replace tree with its right subtree.        
-   else if (node->mLeft == NULL)   	
+   }
+   // Replace tree with its right subtree.
+   else if (node->mLeft == NULL)
    {
       node = node->mRight;
-   }  	
+   }
    else
    {
       // Move to right subtree.
@@ -367,13 +370,13 @@ void AVL<T>::makeDeletion(Node<T> *&node)
       }
 
       // Attach the left subtree of the original tree
-      // as the left subtree of the smallest node 
+      // as the left subtree of the smallest node
       // in the right subtree.
       attachPoint->mLeft = node->mLeft;
 
       // Replace the original tree with its right subtree.
-      node = node->mRight;   
-   }   
+      node = node->mRight;
+   }
 
    nodeToDelete->mLeft = NULL;
    nodeToDelete->mRight = NULL;
@@ -385,7 +388,7 @@ void AVL<T>::makeDeletion(Node<T> *&node)
 
 /*      Pre:  Two nodes
  *     Post:  The higher high value for the two nodes is returned
- *  Purpose:  To determine the highest high value for the two 
+ *  Purpose:  To determine the highest high value for the two
  *            given nodes
  **************************************************************/
 template <typename T>
@@ -411,9 +414,9 @@ void AVL<T>::remove(T searchKey)
  *  Purpose:  A private function that to remove a value from a
  *            AVL recursively.  This function will find the node
  *            where the value occur.  Once the node is found,
- *            call makeDeletion to complete the process.  And, 
+ *            call makeDeletion to complete the process.  And,
  *            the balance factor will be check and the tree will
- *            be rotated when needed to keep the tree is its 
+ *            be rotated when needed to keep the tree is its
  *            optimal stage.  The acceptable balance factors are
  *            {-1, 0, 1}
  **************************************************************/
@@ -460,7 +463,7 @@ void AVL<T>::showInOrder()
 template <typename T>
 void AVL<T>::showPreOrder()
 {
-   displayPreOrder(mRootNode); 
+   displayPreOrder(mRootNode);
 }
 
 
@@ -494,13 +497,13 @@ void AVL<T>::showTree()
  *     Post:  The node is rotated to the left
  *  Purpose:  A private function that rotate the node to the
  *            left when its balance factor is 2 which means it
- *            is too heavy on the right.  If the tree is 
+ *            is too heavy on the right.  If the tree is
  *                  A
  *                   \
  *                    B
  *                     \
  *                      C
- *            the resulting tree is 
+ *            the resulting tree is
  *                   B
  *                  / \
  *                 A   C
