@@ -30,7 +30,7 @@ public:
    HashMap();
    ~HashMap();
    // static int hash(string str);
-   std::hash<string> strHash;
+   std::hash<string> hash;
    static size_t hashToFib(size_t _hash);
    int& operator[](const string& str);
    int& get(const string& str);
@@ -60,7 +60,7 @@ size_t HashMap::hashToFib(size_t hash){
 int& HashMap::get(const string& key){
    // loc = hashToFib(hash(key));
    //cout <<hashToFib(hash(key))<< endl;
-   arrHold = &(mElements[hashToFib(strHash(key))]);
+   arrHold = &(mElements[hashToFib(hash(key))]);
    if (*arrHold == NULL)
    {
       *arrHold = new DynamicArray<ElementNode<string, int> *>;
