@@ -32,9 +32,4 @@ int main()
    codesFile.close();
 
    cout << timer.getTimeReadable() << endl;
-
-   ofstream outFile("out.txt", ios::app);
-   outFile << timer.getTimeReadable() << endl;
-
-   cout << map->get("uvitinic") <<"~"<< endl;
 }

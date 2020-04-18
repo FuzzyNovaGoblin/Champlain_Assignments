@@ -5,6 +5,7 @@
 #include <string>
 #include "DynamicArray.h"
 #include <math.h>
+#include <functional>
 
 using namespace std;
 
@@ -19,35 +20,36 @@ private:
    DynamicArray<ElementNode<string, int>*> **mElements;
    DynamicArray<ElementNode<string, int>*> **arrHold;
    int iterator;
-   int loc;
+  // int loc;
    // int iSize;
    //TODO: remove this
-   int tst = 0;
+   //int tst = 0;
 
 
 public:
    HashMap();
    ~HashMap();
-   static int hash(string str);
-   static size_t hashToFib(int hash);
+   // static int hash(string str);
+   std::hash<string> strHash;
+   static size_t hashToFib(size_t _hash);
    int& operator[](const string& str);
    int& get(const string& str);
 };
 HashMap::HashMap(){
-   mElements = new DynamicArray<ElementNode<string,int>*>*[ARRAY_SIZE]();
+   mElements = new DynamicArray<ElementNode<string,int>*>*[ARRAY_SIZE];
 }
 
-int HashMap::hash(string str)
-{
-   int sum = 0;
-   for (int i = 0; i < str.length(); i++)
-   {
-      sum += (int)(str[i]) * (i + 1) * (i * str.length()) ;
-   }
-   return sum;
-}
+// int HashMap::hash(string str)
+// {
+//    int sum = 0;
+//    for (int i = 0; i < str.length(); i++)
+//    {
+//       sum += (int)(str[i]) * (i + 1) *(i * str.length());
+//    }
+//    return sum;
+// }
 
-size_t HashMap::hashToFib(int hash){
+size_t HashMap::hashToFib(size_t hash){
    return (hash * PHI_MULTIPLYER) >> BIT_SHIFT;
 }
 
@@ -57,7 +59,8 @@ size_t HashMap::hashToFib(int hash){
 
 int& HashMap::get(const string& key){
    // loc = hashToFib(hash(key));
-   arrHold = &(mElements[hashToFib(hash(key))]);
+   //cout <<hashToFib(hash(key))<< endl;
+   arrHold = &(mElements[hashToFib(strHash(key))]);
    if (*arrHold == NULL)
    {
       *arrHold = new DynamicArray<ElementNode<string, int> *>;
