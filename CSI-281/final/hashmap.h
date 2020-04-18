@@ -1,45 +1,43 @@
 #ifndef HASHMAP_H
 #define HASHMAP_H
-
-// #include <string>
-
-// template <typename K, typename T>
-// class Hashmap
-// {
-// private:
-//    T *elements;
-//    Hash()
-
-// public:
-//    Hashmap();
-//    ~Hashmap();
-// };
-
-// #endif
+#define SHIFT_V 20
 
 #include <string>
-#include "bst.h"
+#include "DynamicArray.h"
+#include <math.h>
+
 using namespace std;
 
+const size_t PHI_MULTIPLYER = 11400714819323198485llu;
+const short int BIT_SHIFT = 64 - SHIFT_V;
+const int ARRAY_SIZE = pow(2, SHIFT_V);
+// const int ARRAY_SIZE = 1048576;
 
-class MyHashmap
+class HashMap
 {
 private:
-   BST<string, int> **mElements;
+   DynamicArray<ElementNode<string, int>*> **mElements;
+   DynamicArray<ElementNode<string, int>*> **arrHold;
+   int iterator;
+   int loc;
+   // int iSize;
+   //TODO: remove this
+   int tst = 0;
+
 
 public:
-   MyHashmap();
-   ~MyHashmap();
+   HashMap();
+   ~HashMap();
    static int hash(string str);
    static size_t hashToFib(int hash);
    int& operator[](const string& str);
    int& get(const string& str);
 };
-MyHashmap::MyHashmap(){
-   mElements = new BST<string,int>*[1048576];
+HashMap::HashMap(){
+   mElements = new DynamicArray<ElementNode<string,int>*>*[ARRAY_SIZE]();
 }
 
-int MyHashmap::hash(string str)
+int HashMap::hash(string str)
 {
    int sum = 0;
    for (int i = 0; i < str.length(); i++)
@@ -49,21 +47,31 @@ int MyHashmap::hash(string str)
    return sum;
 }
 
-size_t MyHashmap::hashToFib(int hash){
-   return (hash * 11400714819323198485llu) >> 45;
+size_t HashMap::hashToFib(int hash){
+   return (hash * PHI_MULTIPLYER) >> BIT_SHIFT;
 }
 
 // int& MyHashmap::operator[](const string& key){
 //    return mElements[hashToFib(hash(key))].get(key);
 // }
 
-int& MyHashmap::get(const string& key){
-   if (mElements[hashToFib(hash(key))] == nullptr)
+int& HashMap::get(const string& key){
+   // loc = hashToFib(hash(key));
+   arrHold = &(mElements[hashToFib(hash(key))]);
+   if (*arrHold == NULL)
    {
-      mElements[hashToFib(hash(key))] = new BST<string, int>;
-      return mElements[hashToFib(hash(key))]->get(key);
+      *arrHold = new DynamicArray<ElementNode<string, int> *>;
    }
-   return mElements[hashToFib(hash(key))]->get(key);
+   for (iterator = 0; iterator < (*arrHold)->size(); iterator++)
+   {
+
+      if ((**arrHold)[iterator]->mKey == key)
+      {
+         return (**arrHold)[iterator]->mValue;
+      }
+   }
+   (*arrHold)->add(new ElementNode<string, int>(key));
+   return (**arrHold)[iterator]->mValue;
 }
 
 #endif

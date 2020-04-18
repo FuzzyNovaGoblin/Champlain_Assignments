@@ -10,28 +10,31 @@ int main()
    Timer timer;
 
    timer.start();
-   MyHashmap *map = new MyHashmap();
+   HashMap *map = new HashMap();
    timer.stop();
+
    cout << timer.getTimeReadable() << endl;
 
    bool done = false;
-   ifstream file("codes.txt");
+   ifstream codesFile("codes.txt");
    int numBuff;
    string strBuff;
    timer.start();
 
-
-   while (!file.eof())
+   while (!codesFile.eof())
+   // for (int i = 0; i < 5; i++)
    {
-      file >> strBuff;
-      file >> numBuff;
+      codesFile >> strBuff;
+      codesFile >> numBuff;
       map->get(strBuff) = numBuff;
    }
    timer.stop();
-
-
-
+   codesFile.close();
 
    cout << timer.getTimeReadable() << endl;
-   file.close();
+
+   ofstream outFile("out.txt", ios::app);
+   outFile << timer.getTimeReadable() << endl;
+
+   cout << map->get("uvitinic") <<"~"<< endl;
 }
