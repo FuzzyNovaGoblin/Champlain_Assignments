@@ -26,14 +26,13 @@ public:
    static size_t hashFunc(const string str);
    static size_t hashToFib(size_t hash);
    int &operator[](const string &str);
-   int &get(const string &str);
+   int &get(const string &str, bool mustExist = false);
 };
 
 HashMap::HashMap()
 {
    mElements = new DynamicArray<ElementNode<string, int> *> *[ARRAY_SIZE];
 }
-
 
 size_t HashMap::hashFunc(const string str)
 {
@@ -52,8 +51,7 @@ size_t HashMap::hashToFib(size_t hash)
    return (hash * PHI_MULTIPLYER) >> BIT_SHIFT;
 }
 
-
-int &HashMap::get(const string &key)
+int &HashMap::get(const string &key, bool mustExist)
 {
    arrHold = &(mElements[hashToFib(hashFunc(key))]);
    if (*arrHold == NULL)
@@ -68,8 +66,14 @@ int &HashMap::get(const string &key)
          return (**arrHold)[iterator]->mValue;
       }
    }
-   (*arrHold)->add(new ElementNode<string, int>(key));
-   return (**arrHold)[iterator]->mValue;
+   if (mustExist)
+   {
+      throw EXIT_FAILURE;
+   }
+   else
+   {
+      (*arrHold)->add(new ElementNode<string, int>(key));
+      return (**arrHold)[iterator]->mValue;
+   }
 }
-
 #endif
