@@ -71,8 +71,7 @@ int &HashMap::get(const string &key, bool mustExist)
    {
       if ((**arrHold)[iterator]->mKey == key)
       {
-         cout << key << endl;
-         return (**arrHold)[iterator]->mValue;
+           return (**arrHold)[iterator]->mValue;
       }
    }
    if (mustExist)
