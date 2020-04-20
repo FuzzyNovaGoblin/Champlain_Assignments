@@ -19,7 +19,7 @@ int main()
    timer.start();
    HashMap *map = new HashMap();
    timer.stop();
-   cout << timer.getTimeReadable() << endl;
+   std::cout << timer.getTimeReadable() << endl;
 
    timer.start();
    while (!inFile.eof())
@@ -30,11 +30,11 @@ int main()
    }
    timer.stop();
    inFile.close();
-   cout << timer.getTimeReadable() << endl;
+   std::cout << "Loading Data Structure" << timer.getTimeReadable() << endl;
 
    while (true)
    {
-      cout << "Enter Input File: ";
+      std::cout << "Enter Input File: ";
       getline(cin, strBuff);
       if (strBuff == "exit")
          break;
@@ -42,7 +42,7 @@ int main()
 
       if (inFile.is_open())
       {
-         cout << "Enter Output File: ";
+         std::cout << "Enter Output File: ";
          getline(cin, strBuff);
          outFile.open(strBuff);
 
@@ -51,24 +51,23 @@ int main()
          {
             inFile >> strBuff;
             strBuff = toLowerCase(strBuff);
-            cout << strBuff << endl;
             try
             {
-               outFile << map->get(strBuff, true) << " ";
-
+               outFile << setfill('0') << setw(7) << map->get(strBuff, true) << " ";
             }
             catch (int e)
             {
+               outFile << strBuff << " \n";
             }
          }
          timer.stop();
          outFile.close();
          inFile.close();
-         cout << timer.getTimeReadable() << endl;
+         std::cout << "Encrypting time: " << timer.getTimeReadable() << endl;
       }
       else
       {
-         cout << "Not a valid file name\n";
+         std::cout << "Not a valid file name\n";
       }
    }
 }

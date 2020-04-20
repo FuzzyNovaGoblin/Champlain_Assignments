@@ -7,11 +7,12 @@
 
 using namespace std;
 
-#define SHIFT_V 18
+#define SHIFT_V 20
 
 const size_t PHI_MULTIPLYER = 11400714819323198485llu;
 const short int BIT_SHIFT = 64 - SHIFT_V;
 const int ARRAY_SIZE = pow(2, SHIFT_V);
+
 
 class HashMap
 {
@@ -34,16 +35,24 @@ HashMap::HashMap()
    mElements = new DynamicArray<ElementNode<string, int> *> *[ARRAY_SIZE];
 }
 
+HashMap::~HashMap()
+{
+   delete[] *mElements;
+   delete[] *arrHold;
+   delete arrHold;
+   delete mElements;
+}
+
 size_t HashMap::hashFunc(const string str)
 {
    size_t sum;
 
    for (int i = 0; i < str.length(); i++)
    {
-      sum += (str[i] * PHI_MULTIPLYER) ^ (sum >> 23);
+      sum += (str[i] * PHI_MULTIPLYER) ^ (sum >> (SHIFT_V));
    }
 
-   return sum ^ (sum << 37);
+   return sum ^ (sum << SHIFT_V);
 }
 
 size_t HashMap::hashToFib(size_t hash)
@@ -60,9 +69,9 @@ int &HashMap::get(const string &key, bool mustExist)
    }
    for (iterator = 0; iterator < (*arrHold)->size(); iterator++)
    {
-
       if ((**arrHold)[iterator]->mKey == key)
       {
+         cout << key << endl;
          return (**arrHold)[iterator]->mValue;
       }
    }
@@ -72,6 +81,7 @@ int &HashMap::get(const string &key, bool mustExist)
    }
    else
    {
+
       (*arrHold)->add(new ElementNode<string, int>(key));
       return (**arrHold)[iterator]->mValue;
    }
