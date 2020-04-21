@@ -13,7 +13,6 @@ const size_t PHI_MULTIPLYER = 11400714819323198485llu;
 const short int BIT_SHIFT = 64 - SHIFT_V;
 const int ARRAY_SIZE = pow(2, SHIFT_V);
 
-
 class HashMap
 {
 private:
@@ -37,8 +36,8 @@ HashMap::HashMap()
 
 HashMap::~HashMap()
 {
-   delete[] *mElements;
-   delete[] *arrHold;
+   delete[] * mElements;
+   delete[] * arrHold;
    delete arrHold;
    delete mElements;
 }
@@ -71,7 +70,7 @@ int &HashMap::get(const string &key, bool mustExist)
    {
       if ((**arrHold)[iterator]->mKey == key)
       {
-           return (**arrHold)[iterator]->mValue;
+         return (**arrHold)[iterator]->mValue;
       }
    }
    if (mustExist)
