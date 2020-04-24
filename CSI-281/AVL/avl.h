@@ -16,7 +16,7 @@
 
 #include <iostream>
 #include <algorithm>
-#include <
+
 
 using namespace std;
 
@@ -562,6 +562,14 @@ void AVL<T>::rotateLeftRight( Node<T> *&node)
 template <typename T>
 void AVL<T>::rotateRight( Node<T> *&node)
 {
+   Node<T> *tmp = node->mLeft;
+   node->mLeft = tmp->mRight;
+   tmp->mRight = node;
+
+   node->mHeight = maxHeight(node->mLeft, node->mRight);
+   tmp->mHeight = maxHeight(tmp->mLeft, tmp->mRight);
+
+   node = tmp;
 }
 
 

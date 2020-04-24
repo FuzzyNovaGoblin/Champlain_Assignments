@@ -1,3 +1,12 @@
+/* ***       Author:  Grant Hedley
+     *  Last Update:  April 24, 2020
+     *        Class:  CSI-281
+     *     Filename:  DynamicArray.h
+     *
+     *  Certification of Authenticity:
+     *     I certify that this assignment is entirely my work.
+     **********************************************************/
+
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
 
@@ -6,7 +15,7 @@
 #include <cstdlib>
 #include <sstream>
 
-using namespace std;
+	 using namespace std;
 
 template <typename K, typename V>
 struct ElementNode
@@ -41,6 +50,7 @@ public:
 	void add(T item);
 	void resizeArray(int newSize);
 	T remove(int i);
+	void clear();
 };
 
 
@@ -148,8 +158,14 @@ void DynamicArray<T>::resizeArray(int newSize)
 template <typename T>
 T DynamicArray<T>::remove(int i)
 {
-	for (int i = 0; i < mArrayCount - 1;)
+	for (int i = 0; i < mArrayCount - 2;)
 		mArr[i] = mArr[++i];
+	mCount--;
+}
+
+template<typename T>
+void DynamicArray<T>::clear(){
+	mCount = 0;
 }
 
 #endif
