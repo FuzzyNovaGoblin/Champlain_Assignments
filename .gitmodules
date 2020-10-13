@@ -1,3 +1,9 @@
 [submodule "CSI-180/CSI-180-arduino-1"]
 	path = CSI-180/CSI-180-arduino-1
 	url = https://github.com/FuzzyNovaGoblin/CSI-180-arduino-1.git
+[submodule "CSI-230/week6S"]
+	path = CSI-230/week6S
+	url = git@github.com:FuzzyNovaGoblin/week6.git
+[submodule "CSI-230/CSI-230/week6"]
+	path = CSI-230/CSI-230/week6
+	url = git@github.com:FuzzyNovaGoblin/week6.git
