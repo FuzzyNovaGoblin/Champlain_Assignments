@@ -13,3 +13,6 @@
 [submodule "CSI-230/project1-scripting"]
 	path = CSI-230/project1-scripting
 	url = git@github.com:FuzzyNovaGoblin/Project---Scripting-1.git
+[submodule "CSI-230/CSI-230-Project-2---User-Provisioning"]
+	path = CSI-230/CSI-230-Project-2---User-Provisioning
+	url = git@github.com:FuzzyNovaGoblin/CSI-230-Project-2---User-Provisioning.git
