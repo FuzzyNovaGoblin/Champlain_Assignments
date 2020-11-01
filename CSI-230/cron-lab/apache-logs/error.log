@@ -1,0 +1,6 @@
+[Sun Nov 01 15:51:59.894243 2020] [mpm_event:notice] [pid 1749:tid 140088112499776] AH00489: Apache/2.4.41 (Ubuntu) configured -- resuming normal operations
+[Sun Nov 01 15:51:59.895066 2020] [core:notice] [pid 1749:tid 140088112499776] AH00094: Command line: '/usr/sbin/apache2'
+[Sun Nov 01 16:10:11.685221 2020] [mpm_event:notice] [pid 1749:tid 140088112499776] AH00493: SIGUSR1 received.  Doing graceful restart
+[Sun Nov 01 16:10:11.692304 2020] [mpm_event:notice] [pid 1749:tid 140088112499776] AH00489: Apache/2.4.41 (Ubuntu) configured -- resuming normal operations
+[Sun Nov 01 16:10:11.692316 2020] [core:notice] [pid 1749:tid 140088112499776] AH00094: Command line: '/usr/sbin/apache2'
+[Sun Nov 01 16:30:55.631651 2020] [core:error] [pid 2676:tid 140087899662080] (13)Permission denied: [client 184.171.154.235:49356] AH00132: file permissions deny server access: /var/www/html/index.html
