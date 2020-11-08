@@ -16,6 +16,7 @@ using namespace std;
 
 int main()
 {
+   srand(time(NULL));
    //initialization
    int i{0};
    int k = 0;
