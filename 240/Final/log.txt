@@ -1,0 +1,17 @@
+
+Start program @ Mon Aug  3 13:32:05 2020
+
+
+Dry food added to products
+
+Meat added to products
+
+saved data to savestoof
+
+Start program @ Mon Aug  3 13:34:29 2020
+
+
+Start program @ Mon Aug  3 13:34:53 2020
+
+
+read data from savestoof
