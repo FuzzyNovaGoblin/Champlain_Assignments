@@ -6,6 +6,9 @@
  * @date 11/06/20
  *
 */
+#ifndef UTIL_H
+#define UTIL_H
+
 
 #include <vector>
 #include <iostream>
@@ -30,3 +33,6 @@ string& randomElement(vector<string> &arr);
 // prints elements of vector then new line
 void printVector(vector<string> &arr);
 void printVector(vector<double> &arr);
+
+
+#endif

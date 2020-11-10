@@ -5,7 +5,7 @@ BIN 		:= bin
 SRC 		:= src
 INCLUDE	:= include
 
-LIB   	:=
+LIB   	:= lib
 EXEC 		:= main
 
 OBJ = $(SRC:.cc=.o)
@@ -13,7 +13,7 @@ OBJ = $(SRC:.cc=.o)
 all: $(BIN)/$(EXEC)
 
 run: clean all
-	clear
+	# clear
 	$(BIN)/$(EXEC)
 
 $(BIN)/$(EXEC): $(SRC)/*.cpp
