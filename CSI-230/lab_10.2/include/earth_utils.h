@@ -29,4 +29,21 @@ int processCSV(std::ifstream &inFile, std::string kmlFileName);
  * @param longitude string "longitude"
  */
 void writePlacemark(std::ofstream &kmlFile, std::string name, std::string latitude, std::string longitude);
+
+const std::string KML_OPEN = "<?xml version=\"1.o\" encoding=\"UTF-8\"?>\n"
+                              "<kml xmlns=\"http://www.opengis.net/kml/2.2\" xmlns:gx=\"http://www.google.com/kml/ext/2.2\" xmlns:kml=\"http://www.opengis.net/kml/2.2\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
+                              "<Document>\n";
+
+const std::string KML_CLOSE = "</Document>\n</kml>";
+
+const std::string PLACEMARK_OPEN = "<Placemark>\n";
+const std::string PLACEMARK_CLOSE = "</Placemark>\n";
+
+
+const std::string NAME_OPEN = "<name>\n";
+const std::string NAME_CLOSE = "</name>\n";
+
+const std::string POINT_COORD_OPEN = "<Point><coordinates>";
+const std::string POINT_COORD_CLOSE = "</coordinates></Point>\n";
+
 #endif

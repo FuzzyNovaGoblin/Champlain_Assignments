@@ -1,1 +1,1 @@
-Wed Nov 11 15:40:14 2020 bella main[298524]: The kmlfile is: concap.csv  and logfile is: mylog.txt
+Wed Nov 11 15:56:48 2020 bella main[300924]: The kmlfile is: concap.csv  and logfile is: mylog.txt
