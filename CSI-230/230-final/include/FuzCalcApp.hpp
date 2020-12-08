@@ -18,7 +18,7 @@ namespace FuzCalc {
 
 class FuzCalcApp {
    Glib::RefPtr<Gtk::Application> mApp;     // GTK aplication object
-   FuzCalcWin*                    mWindow;  // GTK window object pointer
+   CalcWin*                    mWindow;  // GTK window object pointer
 
 public:
    /**

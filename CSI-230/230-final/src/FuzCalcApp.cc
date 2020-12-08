@@ -12,7 +12,7 @@ using namespace FuzCalc;
 
 FuzCalcApp::FuzCalcApp(std::string id) {
    mApp    = Gtk::Application::create(id);
-   mWindow = new FuzCalcWin();
+   mWindow = new CalcWin();
 }
 FuzCalcApp::~FuzCalcApp() {
    delete mWindow;

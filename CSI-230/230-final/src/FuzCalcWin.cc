@@ -8,7 +8,7 @@
 
 #include "FuzCalcWin.hpp"
 
-FuzCalc::FuzCalcWin::FuzCalcWin() {
+FuzCalc::CalcWin::CalcWin() {
    set_border_width(10);
    mFontDescription = Pango::FontDescription("mono 20");
    add(mMainVBox);
@@ -16,23 +16,71 @@ FuzCalc::FuzCalcWin::FuzCalcWin() {
    mMathEntry.override_font(mFontDescription);
    mMathEntry.set_alignment(0);
    mMathEntry.set_size_request(1200, -1);
-   // mMathEntry.signal_enter_notify_event().connect;
+   mMathEntry.signal_key_press_event().connect(sigc::mem_fun(*this, &FuzCalc::CalcWin::onMathEnter), false);
    mMainVBox.add(mMathEntry);
 
    mMainVBox.add(mHistoryListVbox);
 
-   tst1.set_text("hello there");
-   tst1.override_font(mFontDescription);
-   tst2.set_text("hello there");
-   tst2.override_font(mFontDescription);
-   tst3.set_text("hello there");
-   tst3.override_font(mFontDescription);
-   mHistoryListVbox.add(tst1);
-   mHistoryListVbox.add(tst2);
-   mHistoryListVbox.add(tst3);
-
    show_all_children();
 }
 
-FuzCalc::FuzCalcWin::~FuzCalcWin() {
+FuzCalc::CalcWin::~CalcWin() {
+   for(int i = 0; i < mWidgetPtrs.size(); i++) {
+      delete mWidgetPtrs[i];
+   }
+}
+
+Gtk::Button& FuzCalc::CalcWin::historyButtonBuilder(std::string text) {
+   Gtk::Button* tmpButton = new Gtk::Button;
+   Gtk::Label*  tmpLabel  = new Gtk::Label;
+   mWidgetPtrs.push_back(tmpButton);
+   mWidgetPtrs.push_back(tmpLabel);
+
+   std::string result = text;
+
+   tmpButton->signal_button_press_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnPressed), result), false);
+   tmpButton->signal_key_release_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnEnterPressed), result), false);
+
+   mHistoryListVbox.pack_end(*tmpButton);
+
+   tmpLabel->set_text(text +" = " + result);
+   tmpButton->add(*tmpLabel);
+
+   mHistoryListVbox.show_all_children();
+
+   return *tmpButton;
+}
+
+bool FuzCalc::CalcWin::onHistoryBtnPressed(GdkEventButton* btn, std::string copyVal) {
+   std::cout << "(" << copyVal << ")"
+             << "btn pressed\n";
+
+   system(("echo -ne \"" + copyVal + "\" | xclip -i -selection clipboard").c_str());
+   return false;
+}
+
+bool FuzCalc::CalcWin::onHistoryBtnEnterPressed(GdkEventKey* event, std::string copyVal) {
+   if(event->keyval != 65293)
+      return false;
+      
+   std::cout << "(" << copyVal << ")"
+             << "btn pressed\n";
+
+   system(("echo -ne \"" + copyVal + "\" | xclip -i -selection clipboard").c_str());
+   return false;
+}
+
+bool FuzCalc::CalcWin::onMathEnter(GdkEventKey* event) {
+   if(event->keyval != 65293)
+      return false;
+   if(mMathEntry.get_text() == "")
+      return false;
+
+   mHistoryTextListVec.push_back(mMathEntry.get_text());
+   std::cout << "hello there mr math\nsize: " << mHistoryTextListVec.size() << "\nlast one: " << mHistoryTextListVec.back() << std::endl;
+
+   historyButtonBuilder(mMathEntry.get_text());
+   mMathEntry.set_text("");
+
+   return true;
 }
