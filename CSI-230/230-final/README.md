@@ -10,3 +10,9 @@ Based off of [rofi-clac](https://github.com/svenstaro/rofi-calc) by [Sven-Hendri
 
 - gtk3
 - xclip
+
+### Install
+
+1. cd to FuzCalc root dir
+2. run `make`
+3. run `sudo make install`

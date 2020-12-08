@@ -15,7 +15,7 @@ INCLUDE	:= -Iinclude
 LIB := lib
 
 LIBS   	:=
-EXEC 		:= fuzy-calc
+EXEC 		:= FuzCalc
 
 
 LIB_INSTALL_DIR := /usr/lib
