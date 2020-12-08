@@ -10,4 +10,3 @@ Based off of [rofi-clac](https://github.com/svenstaro/rofi-calc) by [Sven-Hendri
 
 - gtk3
 - xclip
-- X11

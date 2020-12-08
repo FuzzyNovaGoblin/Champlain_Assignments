@@ -1,5 +1,5 @@
 CXX 		:= g++
-CXXFLAGS := -std=c++17 -Wall `pkg-config gtkmm-3.0 --libs --cflags` -Iinclude
+CXXFLAGS := -std=c++17 -Wall `pkg-config gtkmm-3.0 --libs --cflags` `pkg-config --cflags --libs libqalculate`  -Iinclude
 
 BIN 		:= bin
 

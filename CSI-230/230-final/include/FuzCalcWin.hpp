@@ -15,6 +15,7 @@
 #include <gtkmm/entry.h>
 #include <gtkmm/label.h>
 #include <gtkmm/window.h>
+#include <libqalculate/Calculator.h>
 
 #include <iostream>
 #include <string>
@@ -29,8 +30,8 @@ protected:
    Gtk::VBox                 mHistoryListVbox;     // list to place history in
    Pango::FontDescription    mFontDescription;     // main font discription to use
    std::vector<std::string>  mHistoryTextListVec;  // holds the stings that make up the history
-   std::vector<Gtk::Widget*> mWidgetPtrs;         // holdt the pointers to dynamicly created widgets to be destroyed later
-
+   std::vector<Gtk::Widget*> mWidgetPtrs;          // holdt the pointers to dynamicly created widgets to be destroyed later
+   
    /**
     * @brief build a history button that displays [text]
     * @param text text to be displayed
@@ -64,6 +65,7 @@ public:
     *         false if the key press was not handled
     */
    bool onHistoryBtnEnterPressed(GdkEventKey* event, std::string copyVal);
+
 
    /**
     * @brief Construct a new Fuz Calc Win object

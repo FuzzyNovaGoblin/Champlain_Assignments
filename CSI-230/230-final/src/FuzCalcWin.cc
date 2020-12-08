@@ -9,6 +9,11 @@
 #include "FuzCalcWin.hpp"
 
 FuzCalc::CalcWin::CalcWin() {
+   new Calculator();
+   CALCULATOR->loadExchangeRates();
+   CALCULATOR->loadGlobalDefinitions();
+   CALCULATOR->loadLocalDefinitions();
+
    set_border_width(10);
    mFontDescription = Pango::FontDescription("mono 20");
    add(mMainVBox);
@@ -25,7 +30,7 @@ FuzCalc::CalcWin::CalcWin() {
 }
 
 FuzCalc::CalcWin::~CalcWin() {
-   for(int i = 0; i < mWidgetPtrs.size(); i++) {
+   for(size_t i = 0; i < mWidgetPtrs.size(); i++) {
       delete mWidgetPtrs[i];
    }
 }
@@ -36,14 +41,18 @@ Gtk::Button& FuzCalc::CalcWin::historyButtonBuilder(std::string text) {
    mWidgetPtrs.push_back(tmpButton);
    mWidgetPtrs.push_back(tmpLabel);
 
-   std::string result = text;
+   EvaluationOptions eo;
+   MathStructure     result;
+   CALCULATOR->calculate(&result, text, 2000, eo);
 
-   tmpButton->signal_button_press_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnPressed), result), false);
-   tmpButton->signal_key_release_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnEnterPressed), result), false);
+   std::string resultStr = result.print();
+
+   tmpButton->signal_button_press_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnPressed), resultStr), false);
+   tmpButton->signal_key_release_event().connect(sigc::bind(sigc::mem_fun(*this, &FuzCalc::CalcWin::onHistoryBtnEnterPressed), resultStr), false);
 
    mHistoryListVbox.pack_end(*tmpButton);
 
-   tmpLabel->set_text(text +" = " + result);
+   tmpLabel->set_text(text + " = " + resultStr);
    tmpButton->add(*tmpLabel);
 
    mHistoryListVbox.show_all_children();
@@ -62,7 +71,7 @@ bool FuzCalc::CalcWin::onHistoryBtnPressed(GdkEventButton* btn, std::string copy
 bool FuzCalc::CalcWin::onHistoryBtnEnterPressed(GdkEventKey* event, std::string copyVal) {
    if(event->keyval != 65293)
       return false;
-      
+
    std::cout << "(" << copyVal << ")"
              << "btn pressed\n";
 
@@ -80,7 +89,6 @@ bool FuzCalc::CalcWin::onMathEnter(GdkEventKey* event) {
    std::cout << "hello there mr math\nsize: " << mHistoryTextListVec.size() << "\nlast one: " << mHistoryTextListVec.back() << std::endl;
 
    historyButtonBuilder(mMathEntry.get_text());
-   mMathEntry.set_text("");
 
    return true;
 }
