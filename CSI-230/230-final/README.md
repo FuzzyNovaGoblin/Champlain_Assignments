@@ -2,14 +2,16 @@
 
 ###### *by [FuzzyNovaGoblin](https://github.com/FuzzyNovaGoblin) and [FuzyTech LLC](https://fuzytech.com)*
 
-calculator gui popup
+calculator gui popup using `libqalculate`
 
-Based off of [rofi-clac](https://github.com/svenstaro/rofi-calc) by [Sven-Hendrik Haase](https://github.com/svenstaro)
+Inspired by [rofi-clac](https://github.com/svenstaro/rofi-calc) by [Sven-Hendrik Haase](https://github.com/svenstaro)
+
 
 ### Dependencies
 
-- gtk3
+- gtkmm-3.0
 - xclip
+- libqalculate
 
 ### Install
 
