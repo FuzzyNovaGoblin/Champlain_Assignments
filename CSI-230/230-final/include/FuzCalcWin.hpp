@@ -12,17 +12,22 @@
 #include <gtkmm/application.h>
 #include <gtkmm/box.h>
 #include <gtkmm/entry.h>
+#include <gtkmm/label.h>
 #include <gtkmm/window.h>
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 namespace FuzCalc {
 
 class FuzCalcWin : public Gtk::Window {
 protected:
-   Gtk::VBox mMainVBox;   // all widgets go in this
-   Gtk::VBox mMathEntry;  // text filed to take in equations
+   Gtk::VBox                mMainVBox;         // all widgets go in this
+   Gtk::Entry               mMathEntry;        // text filed to take in equations
+   Gtk::VBox                mHistoryListVbox;  // list to place history in
+   Pango::FontDescription   mFontDescription;  // main font discription to use
+   std::vector<std::string> mHistoryListVec;   // holds the stings that make up the history
 
 public:
    /**

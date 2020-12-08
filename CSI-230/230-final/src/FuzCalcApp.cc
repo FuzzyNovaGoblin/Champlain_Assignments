@@ -18,5 +18,5 @@ FuzCalcApp::~FuzCalcApp() {
    delete mWindow;
 }
 int FuzCalcApp::start() {
-   mApp->run(*mWindow);
+   return mApp->run(*mWindow);
 }
