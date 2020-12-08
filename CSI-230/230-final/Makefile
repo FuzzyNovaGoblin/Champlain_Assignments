@@ -1,9 +1,17 @@
 CXX 		:= g++
-CXXFLAGS := -std=c++17 `pkg-config gtkmm-3.0 --cflags --libs` 
+CXXFLAGS := -std=c++17 -Wall `pkg-config gtkmm-3.0 --libs --cflags` -Iinclude
 
 BIN 		:= bin
-SRC 		:= src
-INCLUDE	:= include
+
+VPATH = src:include
+
+SRCDIR 		:= src
+sosrc := FuzCalcWin.cc FuzCalcApp.cc
+MAINSRC 		:= $(SRCDIR)/main.cpp
+sobjs 		:= $(patsubst %.cc,%.so,$(sosrc))
+SO_NAMES 		:= $(patsubst %.cc,%,$(sosrc))
+
+INCLUDE	:= -Iinclude
 LIB := lib
 
 LIBS   	:=
@@ -13,31 +21,34 @@ EXEC 		:= fuzy-calc
 LIB_INSTALL_DIR := /usr/lib
 BIN_INSTALL_DIR := /usr/local/bin
 
-# SRCDIR := src
-# BUILDDIR := build
-# TARGET := bin/runner
 
-# SRCEXT := cpp
-# SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-# OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-# CFLAGS := -std=c++17 -ggdb `pkg-config --cflags --libs gtk+-3.0`
 
-INC := -I include
 
-# all: $(LIB)/lib$(SO_NAME).so
-all: $(BIN)/$(EXEC)
+all: $(foreach sob, $(sobjs),  $(LIB)/lib$(sob)) $(BIN)/$(EXEC)
 
 run: clean all
 	clear
 	$(BIN)/$(EXEC)
 
 
-# $(LIB)/lib$(SO_NAME).so: $(SRC)/$(SO_NAME)/*.cpp
-# 	$(CXX) $(CFLAGS) -I$(INCLUDE) $^ -o $@ $(LIBS)
 
-$(BIN)/$(EXEC): $(SRC)/*.c*
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE) $^ -o $@ -L$(LIB)
+$(LIB)/libFuzCalcWin.so: $(SRCDIR)/FuzCalcWin.cc
+	$(CXX) $(CXXFLAGS) -fPIC -c  $(INCLUDE) $^ -o $@ -L$(LIB)
+
+$(LIB)/libFuzCalcApp.so: $(SRCDIR)/FuzCalcApp.cc
+	$(CXX) $(CXXFLAGS) -fPIC -c  $(INCLUDE) $^ -o $@ -L$(LIB)
+
+$(BIN)/$(EXEC): $(MAINSRC)
+	$(CXX)  $(CXXFLAGS) $(INCLUDE)  $^ -o $@ -L$(LIB) $(foreach libso, $(SO_NAMES),-l$(libso) )
 
 clean:
 		-rm $(BIN)/*
 		-rm $(LIB)/*
+
+install: all
+	cp $(foreach sob, $(sobjs),  $(LIB)/lib$(sob)) $(LIB_INSTALL_DIR)/
+	cp $(BIN)/$(EXEC) $(BIN_INSTALL_DIR)/
+
+remove:
+	rm $(foreach sob, $(sobjs),  $(LIB_INSTALL_DIR)/lib$(sob))
+	rm $(BIN_INSTALL_DIR)/$(EXEC)

@@ -29,10 +29,15 @@ protected:
    Pango::FontDescription   mFontDescription;  // main font discription to use
    std::vector<std::string> mHistoryListVec;   // holds the stings that make up the history
 
+   Gtk::Label tst1;
+   Gtk::Label tst2;
+   Gtk::Label tst3;
+
+   
+
 public:
    /**
     * @brief Construct a new Fuz Calc Win object
-    * @param mApplication_id the id for the aplications main window, defaults to "com.fuzytech.fuzcalc"
     */
    FuzCalcWin();
 

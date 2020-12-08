@@ -27,12 +27,12 @@ public:
 	 */
    FuzCalcApp(std::string id = "com.fuzytech.fuzcalc");
 
-	/**
+   /**
 	 * @brief Destroy the Fuz Calc App object
 	 */
    ~FuzCalcApp();
 
-	/**
+   /**
 	 * @brief start start the GTK::Application [mApp] with [mWindow]
 	 * @return int the return status of teh application, 0 if sucess
 	 */

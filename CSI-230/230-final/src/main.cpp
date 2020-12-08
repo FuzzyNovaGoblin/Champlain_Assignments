@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 
-#include <FuzCalcApp.hpp>
+#include "FuzCalcApp.hpp"
 #include <iostream>
 
 using namespace std;

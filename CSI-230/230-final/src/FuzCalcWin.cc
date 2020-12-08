@@ -6,9 +6,7 @@
  * @date 2020-12-07
  */
 
-#include <FuzCalcWin.hpp>
-
-using namespace FuzCalc;
+#include "FuzCalcWin.hpp"
 
 FuzCalc::FuzCalcWin::FuzCalcWin() {
    set_border_width(10);
@@ -18,8 +16,7 @@ FuzCalc::FuzCalcWin::FuzCalcWin() {
    mMathEntry.override_font(mFontDescription);
    mMathEntry.set_alignment(0);
    mMathEntry.set_size_request(1200, -1);
-   // mMathEntry.set_font_options()
-   // mMathEntry.
+   // mMathEntry.signal_enter_notify_event().connect;
    mMainVBox.add(mMathEntry);
 
    mMainVBox.add(mHistoryListVbox);
