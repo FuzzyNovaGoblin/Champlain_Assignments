@@ -63,6 +63,14 @@ class SettingsView extends StatelessWidget {
               child: Placeholder(),
             ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 75,
+              child: ElevatedButton(),
+            ),
+          ),
         ],
       ),
     );
