@@ -5,10 +5,8 @@
  * @version 0.1
  * @date 2020-12-08
  */
-#include <gtk/gtk.h>
 
 #include "FuzCalcApp.hpp"
-#include <iostream>
 
 using namespace std;
 

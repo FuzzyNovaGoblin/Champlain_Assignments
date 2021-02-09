@@ -61,9 +61,6 @@ Gtk::Button& FuzCalc::CalcWin::historyButtonBuilder(std::string text) {
 }
 
 bool FuzCalc::CalcWin::onHistoryBtnPressed(GdkEventButton* btn, std::string copyVal) {
-   std::cout << "(" << copyVal << ")"
-             << "btn pressed\n";
-
    system(("echo -ne \"" + copyVal + "\" | xclip -i -selection clipboard").c_str());
    return false;
 }
@@ -71,9 +68,6 @@ bool FuzCalc::CalcWin::onHistoryBtnPressed(GdkEventButton* btn, std::string copy
 bool FuzCalc::CalcWin::onHistoryBtnEnterPressed(GdkEventKey* event, std::string copyVal) {
    if(event->keyval != 65293)
       return false;
-
-   std::cout << "(" << copyVal << ")"
-             << "btn pressed\n";
 
    system(("echo -ne \"" + copyVal + "\" | xclip -i -selection clipboard").c_str());
    return false;
@@ -86,7 +80,6 @@ bool FuzCalc::CalcWin::onMathEnter(GdkEventKey* event) {
       return false;
 
    mHistoryTextListVec.push_back(mMathEntry.get_text());
-   std::cout << "hello there mr math\nsize: " << mHistoryTextListVec.size() << "\nlast one: " << mHistoryTextListVec.back() << std::endl;
 
    historyButtonBuilder(mMathEntry.get_text());
 
