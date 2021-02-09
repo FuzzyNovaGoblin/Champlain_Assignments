@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lunch_break/UIParts/VisableOnMapButton.dart';
 
 class SettingsView extends StatelessWidget {
   @override
@@ -68,7 +69,7 @@ class SettingsView extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               height: 75,
-              child: ElevatedButton(),
+              child: VisableOnMapButton(),
             ),
           ),
         ],
