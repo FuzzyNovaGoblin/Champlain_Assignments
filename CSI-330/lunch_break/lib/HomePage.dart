@@ -10,11 +10,10 @@ class HomePage extends StatelessWidget {
     setWindowMaxSize(Size(574.0,1050.0));
 
     return DefaultTabController(
-      // initialIndex: 1,
-
       length: 3,
       initialIndex: 1,
       child: Scaffold(
+        backgroundColor: Color(0xf5f5f5ff),
         bottomNavigationBar:
 
         TabBar(

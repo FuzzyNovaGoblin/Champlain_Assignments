@@ -46,7 +46,7 @@ class _UserSpanState extends State<UserSpan> {
                               widget.data.name.toUpperCase(),
                               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                             ),
-                            Flexible(flex: 5, child: Image.asset(widget.data.picUrl)),
+                            Flexible(flex: 5, child: ClipOval( child: Image.asset(widget.data.picUrl, ))),
                           ],
                         ),
                       ),

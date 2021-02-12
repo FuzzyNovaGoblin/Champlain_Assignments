@@ -49,7 +49,7 @@ class _SettingsViewState extends State<SettingsView> {
                     padding: const EdgeInsets.all(8.0),
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset(_udata.picUrl),
+                      child: ClipOval(child: Image.asset(_udata.picUrl)),
                     ),
                   )),
               Flexible(
