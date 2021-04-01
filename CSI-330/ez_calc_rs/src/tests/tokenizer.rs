@@ -80,6 +80,24 @@ mod str_to_str_segs_tests {
             ]
         );
     }
+
+    #[test]
+    fn methods() {
+        let tokens = str_to_str_segs("root(24, 2) +7".into());
+        assert_eq!(
+            tokens,
+            vec![
+                String::from("root"),
+                "(".into(),
+                "24".into(),
+                ",".into(),
+                "2".into(),
+                ")".into(),
+                "+".into(),
+                "7".into()
+            ]
+        );
+    }
     #[test]
     fn parenths_and_commas2() {
         let tokens = str_to_str_segs("132+((3,,4,3)*34".into());
