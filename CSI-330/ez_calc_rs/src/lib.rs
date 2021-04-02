@@ -1,5 +1,6 @@
-use string_segmenter::str_to_str_segs;
+use std::fmt::Display;
 
+use string_segmenter::str_to_str_segs;
 
 #[cfg(test)]
 mod tests;
@@ -11,6 +12,18 @@ enum TokenType {
     Method(String),
     Paren(u8),
     Empty,
+}
+
+impl Display for TokenType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            TokenType::Operator(v) => write!(f, "{}", *v),
+            TokenType::Value(v) => write!(f, "{}", v),
+            TokenType::Method(v) => write!(f, "{}", v),
+            TokenType::Paren(v) => write!(f, "{}", v),
+            TokenType::Empty => write!(f, "Empty",),
+        }
+    }
 }
 
 mod string_segmenter {
@@ -93,9 +106,81 @@ fn token_wrapper(segs: Vec<String>) -> Vec<TokenType> {
                 }
             }
         })
+        .filter(|v| match v {
+            Operator(c_op) => *c_op != ',',
+            _ => true,
+        })
         .collect()
 }
 
+fn preform_op(operator: char, num1: f64, num2: f64) -> TokenType {
+    match operator {
+        '+' => TokenType::Value(num1 + num2),
+        '-' => TokenType::Value(num1 - num2),
+        '*' => TokenType::Value(num1 * num2),
+        '/' => TokenType::Value(num1 / num2),
+        '%' => TokenType::Value(num1 % num2),
+        _ => TokenType::Empty,
+    }
+}
+
+fn token_eval(mut tokens: Vec<TokenType>) -> Result<f64, u32> {
+    use TokenType::*;
+
+    if tokens.len() < 1 {
+        return Err(line!());
+    }
+    if tokens.len() == 1 {
+        if let Value(v) = tokens.get(0).unwrap() {
+            return Ok(*v);
+        } else {
+            return Err(line!());
+        }
+    }
+
+    let mut op_index = None;
+    for (i, t) in tokens.iter().enumerate() {
+        if let Operator(_) = t {
+            op_index = Some(i);
+            if i == 0 || i == tokens.len() - 1 {
+                return Err(line!());
+            }
+        }
+    }
+    let op_index = match op_index {
+        Some(v) => v,
+        None => return Err(line!()),
+    };
+
+    let o_v_v: (char, f64, f64) = (
+        match tokens[op_index] {
+            Operator(v) => v,
+            _ => return Err(line!()),
+        },
+        match tokens[op_index - 1] {
+            Value(v) => v,
+            _ => return Err(line!()),
+        },
+        match tokens[op_index + 1] {
+            Value(v) => v,
+            _ => return Err(line!()),
+        },
+    );
+
+    tokens.splice(
+        op_index - 1..op_index + 2,
+        vec![preform_op(o_v_v.0, o_v_v.1, o_v_v.2)],
+    );
+
+    token_eval(tokens)
+}
+
 pub fn evaluate(data: String) -> String {
-    format!("{:?}", token_wrapper(str_to_str_segs(data)))
+    let ans = token_eval(token_wrapper(str_to_str_segs(data)));
+    match ans {
+        Ok(v) => {
+            format!("{}", v)
+        }
+        Err(_) => format!("{:?}", ans),
+    }
 }

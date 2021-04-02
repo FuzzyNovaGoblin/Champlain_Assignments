@@ -1,8 +1,6 @@
-// use ez_calc_rs::string_segmenter::str_to_str_segs;
+use ez_calc_rs::evaluate;
 
-
-pub fn main(){
-    // let v = str_to_str_segs("21+25*4".into());
-    // println!("{:#?}", v);
-
+pub fn main() {
+    let v = evaluate("132+343*34".into());
+    println!("{:#?}", v);
 }

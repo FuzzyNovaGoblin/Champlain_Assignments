@@ -1,20 +1,5 @@
 use crate::string_segmenter::str_to_str_segs;
 
-// use crate::CharacterType;
-
-// mod charater_type_createion {
-//     use crate::CharacterType;
-
-//     #[test]
-//     fn number_createion() {
-//         assert_eq!(CharacterType::new('1'), CharacterType::new)
-//     }
-
-//     fn empty_creation() {
-//         assert_eq!()
-//     }
-// }
-
 mod str_to_str_segs_tests {
     use super::*;
 
@@ -120,31 +105,76 @@ mod str_to_str_segs_tests {
             ]
         );
     }
+}
+#[test]
+fn wrapped_tokens() {
+    use crate::token_wrapper;
+    use crate::TokenType::*;
+
+    let tokens = token_wrapper(str_to_str_segs("132+((3,,4,3)*34".into()));
+    assert_eq!(
+        tokens,
+        vec![
+            Value(132_f64),
+            Operator('+'),
+            Paren(1),
+            Paren(2),
+            Value(3_f64),
+            Value(4_f64),
+            Value(3_f64),
+            Paren(2),
+            Operator('*'),
+            Value(34_f64)
+        ]
+    );
+}
+
+mod calc_math {
+    pub use crate::evaluate;
 
     #[test]
-    fn wrapped_tokens() {
-        use crate::token_wrapper;
-        use crate::TokenType::*;
+    fn add() {
+        assert_eq!(evaluate(String::from("43+3")), "46")
+    }
 
-        let tokens = token_wrapper(str_to_str_segs("132+((3,,4,3)*34".into()));
-        assert_eq!(
-            tokens,
-            vec![
-                Value(132_f64),
-                Operator('+'),
-                Paren(1),
-                Paren(2),
-                Value(3_f64),
-                Operator(','),
-                Operator(','),
-                Value(4_f64),
-                Operator(','),
-                Value(3_f64),
-                Paren(2),
-                Operator('*'),
-                Value(34_f64)
-            ]
-        );
+    #[test]
+    fn sub() {
+        assert_eq!(evaluate(String::from("43-3")), "40")
+    }
+
+    #[test]
+    fn mult() {
+        assert_eq!(evaluate(String::from("3*3")), "9")
+    }
+
+    #[test]
+    fn div() {
+        assert_eq!(evaluate(String::from("100   /5")), "20")
+    }
+
+    #[test]
+    fn modulus() {
+        assert_eq!(evaluate(String::from("43%3")), "1")
+    }
+
+    #[test]
+    fn div_by_0() {
+        assert_eq!(evaluate(String::from("20/0")), "inf")
+    }
+
+    mod pemdas {
+        use crate::evaluate;
+
+        #[test]
+        fn mult_then_add() {
+            assert_eq!(evaluate(String::from("5+3 *6")), "23");
+            assert_eq!(evaluate(String::from("6*5+3")), "23");
+        }
+
+        #[test]
+        fn parens_first() {
+            assert_eq!(evaluate(String::from("5+(3 -6)")), "2")
+        }
     }
 }
 
