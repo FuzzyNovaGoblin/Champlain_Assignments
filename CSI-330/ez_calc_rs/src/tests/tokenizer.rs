@@ -1,5 +1,5 @@
-use crate::str_to_str_segs;
-use crate::is_number;
+use crate::string_segmenter::str_to_str_segs;
+
 // use crate::CharacterType;
 
 // mod charater_type_createion {
@@ -121,11 +121,36 @@ mod str_to_str_segs_tests {
         );
     }
 
+    #[test]
+    fn wrapped_tokens() {
+        use crate::token_wrapper;
+        use crate::TokenType::*;
+
+        let tokens = token_wrapper(str_to_str_segs("132+((3,,4,3)*34".into()));
+        assert_eq!(
+            tokens,
+            vec![
+                Value(132_f64),
+                Operator('+'),
+                Paren(1),
+                Paren(2),
+                Value(3_f64),
+                Operator(','),
+                Operator(','),
+                Value(4_f64),
+                Operator(','),
+                Value(3_f64),
+                Paren(2),
+                Operator('*'),
+                Value(34_f64)
+            ]
+        );
+    }
 }
 
-
 #[test]
-fn is_num_test (){
+fn is_num_test() {
+    use crate::string_segmenter::*;
     for i in 0..10 {
         assert!(is_number(format!("{}", i).chars().next().unwrap()))
     }
