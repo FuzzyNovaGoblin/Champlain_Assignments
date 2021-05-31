@@ -1,0 +1,53 @@
+* Docker
+
+  - run apps anywhere with the same configuration
+  - each container will usualy run a single task
+  - docker hub
+    pull containers from docker hub for a preconfigured enviorment for that language/framework
+  - virtualization
+    not a virtual machine, using same resources as host
+    - direct comunication with kernal
+    - does not pre divide resources
+
+  - dont need to actualy downlaod
+
+  
+
+* Running
+  1. docker file
+     text doc that explains how the image will be built
+  2. docker image
+
+  3. running docker container
+
+  run with src_sh{docker run nameOfDockerImage}
+
+
+* uses
+  - every developer can now use the same enviornment
+    no "it works on my machine"
+    - don't need to install the dependencies on your local machine becaue docker is its own linux image
+    - won't conflict with anything running on the host machine
+  - siplify deployment
+    when deploying there is no need for a set of instructions on how to set up the project
+    just need the docker runtime on the server
+    then put the docker image on the server and
+
+* what is container
+  - made of imagese
+  - layers of images
+    - first image/layer is usealy linux
+    - should be small so a distro like alpine is offten used
+      alpine is a lightweight and security oriented distro that only takes up ~8Mb
+      (it takes more to install but that is temparary so it wouldn't effect the container)
+    - usualy have inter mediate images
+    - last you have the application image which 
+
+
+
+
+
+
+
+
+
